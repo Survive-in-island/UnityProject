@@ -13,6 +13,10 @@ namespace DarkTreeFPS
         public float crouchHeight = 0.5f;
         private bool crouch = false;
 
+        /// ///////////////////////////////////////////////////////
+        private StatusController theStatusController;
+        /// ///////////////////////////////////////////////////////
+
         [Header("MouseLook Settings")]
 
         private Vector2 clampInDegrees = new Vector2(360, 180);
@@ -61,6 +65,10 @@ namespace DarkTreeFPS
             weaponHolderAnimator = GameObject.Find("Weapon holder").GetComponent<Animator>();
 
             inputManager = FindObjectOfType<InputManager>();
+
+            /////////////////////////////////////////////////////////////
+            theStatusController = FindObjectOfType<StatusController>();
+            /////////////////////////////////////////////////////////////
         }
 
         private void Update()
@@ -98,11 +106,18 @@ namespace DarkTreeFPS
                 else
                     weaponHolderAnimator.SetBool("Walk", false);
 
-                if (Input.GetKey(inputManager.Run) && !isClimbing && !crouch && weaponHolderAnimator.GetBool("Walk") == true)
+                if (Input.GetKey(inputManager.Run) && !isClimbing && !crouch && weaponHolderAnimator.GetBool("Walk") == true && theStatusController.GetCurrentSP() > 0)
                 {
                     moveSpeedLocal = runSpeedMultiplier * moveSpeed;
+                    //////////////////////////////////////////////////////////////////////////////////////////
+                    theStatusController.DecreaseStamina(2);
+                    ///////////////////////////////////////////////////////////////////////////////////////////
                     weaponHolderAnimator.SetBool("Run", true);
                 }
+                //////////////////////////////////////////////////////
+                else if (theStatusController.GetCurrentSP() <= 0)
+                    weaponHolderAnimator.SetBool("Run", false);
+                //////////////////////////////////////////////////
                 else
                     weaponHolderAnimator.SetBool("Run", false);
             }
@@ -150,11 +165,18 @@ namespace DarkTreeFPS
                 else
                     weaponHolderAnimator.SetBool("Walk", false);
 
-                if (InputManager.joystickInputVector.y > 0.5f && !isClimbing && !crouch && weaponHolderAnimator.GetBool("Walk") == true)
+                if (InputManager.joystickInputVector.y > 0.5f && !isClimbing && !crouch && weaponHolderAnimator.GetBool("Walk") == true && theStatusController.GetCurrentSP() > 0)
                 {
                     moveSpeedLocal = runSpeedMultiplier * moveSpeed;
+                    //////////////////////////////////////////////////////////////////////////////////////////
+                    theStatusController.DecreaseStamina(2);
+                    ///////////////////////////////////////////////////////////////////////////////////////////
                     weaponHolderAnimator.SetBool("Run", true);
                 }
+                ////////////////////////////////////////////////////
+                else if(theStatusController.GetCurrentSP() <= 0)
+                    weaponHolderAnimator.SetBool("Run", false);
+                /////////////////////////////////
                 else
                     weaponHolderAnimator.SetBool("Run", false);
             }
@@ -310,6 +332,11 @@ namespace DarkTreeFPS
         {
             if (isGrounded())
                 controllerRigidbody.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+            //////////////////////////////////////////////////////////////////////////////////////////
+            theStatusController.DecreaseStamina(100);
+            //if (theStatusController.GetCurrentSP() <= 0)
+            //    weaponHolderAnimator.SetBool("Jump", false);
+            ///////////////////////////////////////////////////////////////////////////////////////////
         }
 
         public void CrouchMobile()
