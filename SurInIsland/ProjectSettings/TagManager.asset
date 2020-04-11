@@ -17,6 +17,8 @@ TagManager:
   - Cover
   - Rock
   - Pig
+  - Twig
+  - Grass
   layers:
   - Default
   - TransparentFX

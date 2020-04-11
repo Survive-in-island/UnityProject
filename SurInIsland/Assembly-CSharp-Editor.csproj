@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7211D02F-3CC9-41D1-495F-C4B4A83527AD}</ProjectGuid>
+    <ProjectGuid>{E5015DBF-1931-B4BA-F9D6-1A8F5060AA46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -70,37 +70,37 @@
     <Compile Include="Assets\FPS\Scripts\Editor\WeaponWizard.cs" />
     <Compile Include="Assets\map\Chapter 01\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -295,7 +295,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:/SurviveInIsland/SurviveInIsland/EX(4월4일 수정)/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>D:/SurviveInIsland/UnityProject/SurInIsland/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -654,7 +654,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{63BC0CCF-3630-8E9A-8E1B-5EFBAF95165F}</Project>
+      <Project>{BC9636F3-FE1A-5F3F-B3DB-A25FFA3E34F6}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

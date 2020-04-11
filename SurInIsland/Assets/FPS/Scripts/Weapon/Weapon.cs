@@ -439,6 +439,14 @@ namespace DarkTreeFPS
                 {
                     hit.transform.GetComponent<Pig>().Damage(1, transform.position);
                 }
+                if (hit.collider.tag == "Twig")
+                {
+                    hit.transform.GetComponent<Twig>().Damage(this.transform);
+                }
+                if (hit.collider.tag == "Grass")
+                {
+                    hit.transform.GetComponent<Grass>().Damage();
+                }
             }
         }
 
@@ -490,6 +498,16 @@ namespace DarkTreeFPS
             if (hit.collider.tag == "NPC")
             {
                 hit.transform.GetComponent<Pig>().Damage(1, transform.position);
+            }
+
+            if (hit.collider.tag == "Twig")
+            {
+                hit.transform.GetComponent<Twig>().Damage(this.transform);
+            }
+
+            if (hit.collider.tag == "Grass")
+            {
+                hit.transform.GetComponent<Grass>().Damage();
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
