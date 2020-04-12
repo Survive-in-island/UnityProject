@@ -19,6 +19,7 @@ TagManager:
   - Pig
   - Twig
   - Grass
+  - Tree
   layers:
   - Default
   - TransparentFX
