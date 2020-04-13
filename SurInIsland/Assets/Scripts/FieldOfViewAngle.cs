@@ -32,8 +32,8 @@ public class FieldOfViewAngle : MonoBehaviour
         Vector3 _leftBoundary = BoundaryAngle(-viewAngle * 0.5f);
         Vector3 _rightBoundary = BoundaryAngle(viewAngle * 0.5f);
 
-        Debug.DrawRay(transform.position + transform.up, _leftBoundary, Color.red);
-        Debug.DrawRay(transform.position + transform.up, _rightBoundary, Color.red);
+        //Debug.DrawRay(transform.position + transform.up, _leftBoundary, Color.red);
+        //Debug.DrawRay(transform.position + transform.up, _rightBoundary, Color.red);
 
         Collider[] _target = Physics.OverlapSphere(transform.position, viewDistance, targetMask);
 
@@ -53,7 +53,7 @@ public class FieldOfViewAngle : MonoBehaviour
                         if (_hit.transform.name == "Player")    // 호랑이 추가하기!
                         {     
                             Debug.Log("플레이어가 돼지 시야 내에 있음");
-                            Debug.DrawRay(transform.position + transform.up, _direction, Color.blue);
+                            //Debug.DrawRay(transform.position + transform.up, _direction, Color.blue);
                             thePig.Run(_hit.transform.position);
                         }
                     }
