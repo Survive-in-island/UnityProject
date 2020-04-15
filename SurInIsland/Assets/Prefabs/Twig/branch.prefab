@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   destroyTime: 5
-  go_little_Twig: {fileID: 6510599141227098097, guid: 8f36d0a703cf30545a596ba1f70c5073,
+  go_little_Twig: {fileID: 6130735382103783924, guid: a8d8bf94789540a4a9adb14d9e6aac3f,
     type: 3}
   go_hit_effect_prefab: {fileID: 4083232084845074354, guid: 63f7c6a2fad4497469edbf5ba595e980,
     type: 3}

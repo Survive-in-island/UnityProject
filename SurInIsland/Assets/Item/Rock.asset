@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Rock
   itemType: 4
   itemImage: {fileID: 21300000, guid: 2b5ca21717806ad42b37b124d335f771, type: 3}
-  itemPrefab: {fileID: 8034417432124175899, guid: 477754f5e2568fb42b98c701d1f0b352,
+  itemPrefab: {fileID: 4289314975303574850, guid: 477754f5e2568fb42b98c701d1f0b352,
     type: 3}
   weaponType: 

@@ -131,8 +131,8 @@ public class Twig : MonoBehaviour
         GameObject clone1 = Instantiate(go_little_Twig, gameObject.GetComponent<BoxCollider>().bounds.center + (Vector3.up * 0.5f), Quaternion.identity);
         GameObject clone2 = Instantiate(go_little_Twig, gameObject.GetComponent<BoxCollider>().bounds.center - (Vector3.up * 0.5f), Quaternion.identity);
 
-        Destroy(clone1, destroyTime);
-        Destroy(clone2, destroyTime);
+        //Destroy(clone1, destroyTime);
+        //Destroy(clone2, destroyTime);
 
         Destroy(gameObject);
 
