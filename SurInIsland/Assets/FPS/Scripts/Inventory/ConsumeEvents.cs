@@ -14,7 +14,7 @@ namespace DarkTreeFPS {
 
     public class ConsumeEvents : MonoBehaviour
     {
-        public enum ConsumableEvents { addHealth, addSatiety, addHydratation }
+        public enum ConsumableEvents { addHealth, addSatiety, addHydratation, ect }
 
         [Header("What reference should I add?")]
         public ConsumableEvents m_Event;
@@ -45,6 +45,8 @@ namespace DarkTreeFPS {
                     break;
                 case ConsumableEvents.addSatiety:
                     item.onUseEvent.AddListener(addSatiety);
+                    break;
+                case ConsumableEvents.ect:
                     break;
             }
         }

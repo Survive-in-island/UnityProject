@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7636891535787149389}
   - component: {fileID: 9024071580301566750}
   - component: {fileID: -3236990475425542568}
+  - component: {fileID: -599207545265700907}
   m_Layer: 0
   m_Name: Item_Twig
   m_TagString: Item
@@ -133,3 +134,17 @@ MonoBehaviour:
   onPickupEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-599207545265700907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130735382103783924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33570a68f78d244baeea5789a2a3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: 3
+  pointsToAdd: 0

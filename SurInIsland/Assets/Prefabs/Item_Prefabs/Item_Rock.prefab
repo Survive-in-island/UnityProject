@@ -1718,6 +1718,7 @@ GameObject:
   - component: {fileID: 4289314975303574877}
   - component: {fileID: 4289314975303574878}
   - component: {fileID: 4289314975303574851}
+  - component: {fileID: 5127445148968410995}
   m_Layer: 0
   m_Name: Item_Rock
   m_TagString: Item
@@ -1791,6 +1792,20 @@ MonoBehaviour:
   onPickupEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5127445148968410995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289314975303574850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af33570a68f78d244baeea5789a2a3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: 3
+  pointsToAdd: 0
 --- !u!1 &4294193347832227539
 GameObject:
   m_ObjectHideFlags: 0
