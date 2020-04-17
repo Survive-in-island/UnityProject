@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d04f89522c95fa4eb4bf925aee8b033, type: 3}
+  m_Script: {fileID: 11500000, guid: 6056bbdde5921ff4ca67c5d0b02cb573, type: 3}
   m_Name: Twig
   m_EditorClassIdentifier: 
   itemName: Twig
-  itemType: 4
-  itemImage: {fileID: 21300000, guid: 7d0a62e9456f93545b42b4fdeafc7636, type: 3}
-  itemPrefab: {fileID: 0}
-  weaponType: 
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: 4aa8b71a214587b47aa886f825a6eb9b, type: 3}
+  itemPrefab: {fileID: 6510599141227098097, guid: 8f36d0a703cf30545a596ba1f70c5073,
+    type: 3}

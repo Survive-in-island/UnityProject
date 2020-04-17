@@ -330,7 +330,7 @@ MonoBehaviour:
   - {fileID: 3776191525533690977}
   - {fileID: 3950668126559155530}
   go_treeCenter: {fileID: 4542206248457545761}
-  go_Log_Prefabs: {fileID: 2956780995116138817, guid: 0a40dc8f638bb4a40ac327c0d2f16cce,
+  go_Log_Prefabs: {fileID: 1761156085699151710, guid: 17873cb641402ed4f85654ac064d3da2,
     type: 3}
   force: 15
   go_ChildTree: {fileID: 7105983726996340582}

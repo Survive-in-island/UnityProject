@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum ItemType {none, weapon, ammo, consumable, imgredient }
+public enum ItemType {none, weapon, ammo, consumable, ingredient }      // 수정함
 
 public class Item : MonoBehaviour
 {
-
+    [System.Serializable]
     public class OnUseEvent : UnityEvent { }
     [System.Serializable]
     public class OnPickupEvent : UnityEvent { }

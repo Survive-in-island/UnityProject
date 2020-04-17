@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d04f89522c95fa4eb4bf925aee8b033, type: 3}
+  m_Script: {fileID: 11500000, guid: 6056bbdde5921ff4ca67c5d0b02cb573, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
   itemName: Rock
-  itemType: 4
-  itemImage: {fileID: 21300000, guid: 2b5ca21717806ad42b37b124d335f771, type: 3}
-  itemPrefab: {fileID: 4289314975303574850, guid: 477754f5e2568fb42b98c701d1f0b352,
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: 4851852feb207404caaef73540369c7e, type: 3}
+  itemPrefab: {fileID: 45508309045759266, guid: b5cf7438dae5d6d4fa015f1e0927e2bd,
     type: 3}
-  weaponType: 

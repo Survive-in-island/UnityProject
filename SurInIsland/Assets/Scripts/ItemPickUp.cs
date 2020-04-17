@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickUp : MonoBehaviour
+public class ItemPickUP : MonoBehaviour
 {
     public kdItem item;
 }

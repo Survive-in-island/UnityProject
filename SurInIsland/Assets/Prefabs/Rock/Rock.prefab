@@ -444,9 +444,9 @@ MonoBehaviour:
   go_debris: {fileID: 3836558213892882403}
   go_effect_prefabs: {fileID: 8698530416691561239, guid: 0527ed68cc7ccef458f45f7e994e7d4b,
     type: 3}
-  go_rock_item_prefab: {fileID: 4289314975303574850, guid: 477754f5e2568fb42b98c701d1f0b352,
+  go_rock_item_prefab: {fileID: 45508309045759266, guid: b5cf7438dae5d6d4fa015f1e0927e2bd,
     type: 3}
-  count: 4
+  count: 3
   audioSource: {fileID: 5052999510222685725}
   effect_sound: {fileID: 8300000, guid: 76a8280c8862777408e2b9b650e20a67, type: 3}
   effect_sound2: {fileID: 8300000, guid: 564d216eecf25434890836e62c40c086, type: 3}

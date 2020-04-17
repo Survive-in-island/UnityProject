@@ -21,11 +21,10 @@ public class Rock : MonoBehaviour
     [SerializeField]
     private GameObject go_effect_prefabs;  // 채굴 이펙트
     [SerializeField]
-    private GameObject go_rock_item_prefab; // 부서진 자리에 생성 될 아이템
+    private GameObject go_rock_item_prefab; // 부서지면 나올 아이템
 
-    // 돌맹이 아이템 등장 횟수
     [SerializeField]
-    private int count;
+    private int count;  // 나올 돌맹이 갯수
 
     [SerializeField]
     private AudioSource audioSource;
@@ -61,6 +60,7 @@ public class Rock : MonoBehaviour
             Instantiate(go_rock_item_prefab, go_rock.transform.position, Quaternion.identity);
 
         }
+
         Destroy(go_rock);
 
         go_debris.SetActive(true);

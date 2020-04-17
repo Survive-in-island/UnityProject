@@ -102,13 +102,14 @@
     <Compile Include="Assets\Scripts\Animal.cs" />
     <Compile Include="Assets\Scripts\FieldOfViewAngle.cs" />
     <Compile Include="Assets\Scripts\Grass.cs" />
-    <Compile Include="Assets\Scripts\ItemPickUp.cs" />
+    <Compile Include="Assets\Scripts\ItemPickUP.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />
     <Compile Include="Assets\Scripts\Twig.cs" />
     <Compile Include="Assets\Scripts\UI\StatusController.cs" />
+    <Compile Include="Assets\Scripts\kdActionController.cs" />
     <Compile Include="Assets\Scripts\kdItem.cs" />
     <Compile Include="Assets\map\Chapter 01\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\map\Chapter 01\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
