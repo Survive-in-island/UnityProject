@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Animals\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
     <Compile Include="Assets\FPS\Scripts\GameManagerDemo.cs" />
     <Compile Include="Assets\FPS\Scripts\Inventory\AmmoCheck.cs" />
     <Compile Include="Assets\FPS\Scripts\Inventory\ConsumeEvents.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\Scripts\Grass.cs" />
     <Compile Include="Assets\Scripts\ItemPickUP.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
+    <Compile Include="Assets\Scripts\Rabbit.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />

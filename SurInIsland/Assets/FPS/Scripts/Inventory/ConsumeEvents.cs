@@ -26,6 +26,8 @@ namespace DarkTreeFPS {
 
         UnityAction addHealth, addSatiety, addHydratation;
 
+        //private StatusController kdPlayerStatus;
+
         private void Start()
         {
             playerStats = FindObjectOfType<PlayerStats>();
@@ -52,6 +54,7 @@ namespace DarkTreeFPS {
         public void AddHealth()
         {
             playerStats.AddHealth(pointsToAdd);
+            //kdPlayerStatus.IncreaseHP(pointsToAdd);
         }
 
         public void AddSatiety()

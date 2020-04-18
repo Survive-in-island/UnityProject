@@ -29,6 +29,8 @@ public class Pig : MonoBehaviour
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private BoxCollider boxCol;
 
+    //[SerializeField]
+    //private GameObject go_meat_row_item_prefab; // 죽으면 나올 아이템
     //private AudioSource theAudio;
     //[SerializeField] private AudioClip[] sound_pig_Normal;
     //[SerializeField] private AudioClip sound_pig_Hurt;
@@ -172,6 +174,7 @@ public class Pig : MonoBehaviour
         isWalking = false;
         isRunning = false;
         isDead = true;
+        //Instantiate(go_meat_row_item_prefab, )
         anim.SetTrigger("Dead");
     }
 

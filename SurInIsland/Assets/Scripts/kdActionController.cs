@@ -10,6 +10,8 @@ public class kdActionController : MonoBehaviour
     private float range; // 습득 가능한 최대 거리
 
     private bool pickupActivated = false; // 습득 가능할 시 true
+    private bool dissolveActivated = false; // 고기 해체 가능할 시 true
+    private bool isDissolving = false; // 고기 해체 중에는 true
 
     private RaycastHit hitInfo; // 충돌체 정보 저장
 
@@ -68,6 +70,13 @@ public class kdActionController : MonoBehaviour
         actionText.gameObject.SetActive(true);
         actionText.text = hitInfo.transform.GetComponent<ItemPickUP>().item.itemName + " 획득 " + "<color=yellow>" + "(E)" + "</color>";
     }
+
+    //private void MeatInfoAppear()
+    //{
+    //    dissolveActivated = true;
+    //    actionText.gameObject.SetActive(true);
+    //    actionText.text = hitInfo.transform.GetComponent<Pig>().item.itemName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
+    //}
 
     private void InfoDisappear()
     {
