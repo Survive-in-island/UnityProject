@@ -16,6 +16,7 @@ public class Tiger : MonoBehaviour
     private bool isAction; // 행동중인지 아닌지 판별
     private bool isWalking; // 걷는지 안 걷는지 판별
     private bool isRunning; // 뛰는지 판별
+    private bool isHit; // 맞았는지 판별
 
     [SerializeField] private float walkTime; // 걷기 시간
     [SerializeField] private float waitTime; // 대기 시간
@@ -72,22 +73,27 @@ public class Tiger : MonoBehaviour
     {
         isWalking = false;
         isAction = true;
-        anim.SetBool("walk", isWalking);
+        isRunning = false;
+
+        //applySpeed = walkSpeed;
+
+        anim.SetBool("isWalk", isWalking);
+        anim.SetBool("isRun", isRunning);
+
         direction.Set(0f, Random.Range(0f, 360f), 0f);
         RandomAction();
     }
 
     private void RandomAction()
     {
-        int _random = Random.Range(0, 1); // 헹동 수정하기
+        int _random = Random.Range(0, 3); // 헹동 수정하기
 
         if (_random == 0)
             Wait();
-        //else if (_random == 1)
-            //Eat();
-        //else if (_random == 2)
-            //Peek();
         else if (_random == 1)
+            //Run();
+            TryWalk();
+        else if (_random == 2)
             TryWalk();
 
     }
@@ -97,25 +103,45 @@ public class Tiger : MonoBehaviour
         currentTime = waitTime;
         Debug.Log("대기");
     }
-    //private void Eat()
-    //{
-    //    currentTime = waitTime;
-    //    anim.SetTrigger("Eat");
-    //    Debug.Log("풀뜯기");
-    //}
 
-    //private void Peek()
-    //{
-    //    currentTime = waitTime;
-    //    anim.SetTrigger("Peek");
 
-    //    Debug.Log("두리번");
-    //}
+    private void Run(Vector3 _targetPos)
+    {
+        direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+
+        currentTime = runTime;
+        isWalking = false;
+        isRunning = true;
+        currentTime = waitTime;
+        anim.SetBool("isRun", isRunning);
+
+        Debug.Log("뛰기");
+    }
+
     private void TryWalk()
     {
         isWalking = true;
-        anim.SetBool("walk", isWalking);
+        anim.SetBool("isWalk", isWalking);
         currentTime = walkTime;
         Debug.Log("걷기");
+    }
+
+    public void Tiger_Damage(int _dmg, Vector3 _targetPos)
+    {
+
+        if (!isHit)
+        {
+            hp -= _dmg;
+
+            if (hp <= 0)
+            {
+                //Dead();
+                return;
+            }
+
+            //PlaySE(sound_pig_Hurt);
+            anim.SetTrigger("isHit");
+            Run(_targetPos);
+        }
     }
 }
