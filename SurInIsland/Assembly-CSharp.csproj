@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\FieldOfViewAngle.cs" />
     <Compile Include="Assets\Scripts\Grass.cs" />
     <Compile Include="Assets\Scripts\ItemPickUP.cs" />
+    <Compile Include="Assets\Scripts\MyGizmos.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
     <Compile Include="Assets\Scripts\Rabbit.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
