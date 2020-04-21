@@ -435,7 +435,7 @@ namespace DarkTreeFPS
                 {
                     hit.transform.GetComponent<Rock>().Mining();
                 }
-                if (hit.collider.tag == "NPC")
+                if (hit.collider.tag == "Pig")
                 {
                     hit.transform.GetComponent<Pig>().Damage(1, transform.position);
                 }
@@ -499,7 +499,7 @@ namespace DarkTreeFPS
                 hit.transform.GetComponent<Rock>().Mining();
             }
 
-            if (hit.collider.tag == "NPC")
+            if (hit.collider.tag == "Pig")
             {
                 hit.transform.GetComponent<Pig>().Damage(1, transform.position);
             }
