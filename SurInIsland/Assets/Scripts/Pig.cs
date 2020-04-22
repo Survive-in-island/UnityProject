@@ -174,6 +174,9 @@ public class Pig : MonoBehaviour
         isWalking = false;
         isRunning = false;
         isDead = true;
+
+        this.gameObject.tag = "Untagged";
+
         //Instantiate(go_meat_row_item_prefab, )
         anim.SetTrigger("Dead");
     }

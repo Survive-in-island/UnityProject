@@ -106,9 +106,9 @@
     <Compile Include="Assets\Scripts\ItemPickUP.cs" />
     <Compile Include="Assets\Scripts\MyGizmos.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
+    <Compile Include="Assets\Scripts\PigSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Rabbit.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
-    <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />
     <Compile Include="Assets\Scripts\Twig.cs" />
