@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Pig.cs" />
     <Compile Include="Assets\Scripts\PigSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Rabbit.cs" />
+    <Compile Include="Assets\Scripts\RabbitSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />

@@ -21,6 +21,7 @@ TagManager:
   - Grass
   - Tree
   - kdItem
+  - Rabbit
   layers:
   - Default
   - TransparentFX
