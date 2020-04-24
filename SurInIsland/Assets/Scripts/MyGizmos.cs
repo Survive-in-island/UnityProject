@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MyGizmos : MonoBehaviour
 {
-    public enum Type { NORMAL, ITEM, ANIMAL }
+    public enum Type { NORMAL, ITEM, ANIMAL, ROCK }
     private const string animalPointFile = "Animal";
     private const string itemPointFile = "Item";
+    private const string rockPointFile = "Rock";
+
 
     public Type type = Type.ANIMAL;
 
@@ -36,6 +38,13 @@ public class MyGizmos : MonoBehaviour
             Gizmos.color = _color;
             // 이미지 파일 표시
             Gizmos.DrawIcon(transform.position + Vector3.up * 1.0f, itemPointFile, true);
+            Gizmos.DrawWireSphere(transform.position, _radius);
+        }
+        else if (type == Type.ROCK)
+        {
+            Gizmos.color = _color;
+            // 이미지 파일 표시
+            Gizmos.DrawIcon(transform.position + Vector3.up * 1.0f, rockPointFile, true);
             Gizmos.DrawWireSphere(transform.position, _radius);
         }
     }
