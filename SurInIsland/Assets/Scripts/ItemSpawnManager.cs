@@ -14,7 +14,7 @@ public class ItemSpawnManager : MonoBehaviour
     // 아이템을 생성할 주기
     public float itemCreatTime = 5.0f;
     // 아이템 최대 생성 개수
-    public int maxItem = 20;                 
+    public int maxItem = 20;
 
     public bool isGameOver = false;
 
@@ -89,6 +89,6 @@ public class ItemSpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

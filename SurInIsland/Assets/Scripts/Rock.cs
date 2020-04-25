@@ -62,7 +62,7 @@ public class Rock : MonoBehaviour
         }
 
         Destroy(go_rock);
-
+        
         go_debris.SetActive(true);
         Destroy(go_debris, destroyTime);
     }
