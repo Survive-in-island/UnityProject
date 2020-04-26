@@ -439,6 +439,10 @@ namespace DarkTreeFPS
                 {
                     hit.transform.GetComponent<Pig>().Damage(1, transform.position);
                 }
+                if (hit.collider.tag == "Rabbit")
+                {
+                    hit.transform.GetComponent<Rabbit>().Damage(1, transform.position);
+                }
                 if (hit.collider.tag == "Twig")
                 {
                     hit.transform.GetComponent<Twig>().Damage(this.transform);
@@ -499,9 +503,13 @@ namespace DarkTreeFPS
                 hit.transform.GetComponent<Rock>().Mining();
             }
 
-            if (hit.collider.tag == "Pig")
+            if (hit.collider.tag == "Pig")          // 나중에 상속 받아서 Animal로 바꿀것
             {
                 hit.transform.GetComponent<Pig>().Damage(1, transform.position);
+            }
+            if (hit.collider.tag == "Rabbit")
+            {
+                hit.transform.GetComponent<Rabbit>().Damage(1, transform.position);
             }
 
             if (hit.collider.tag == "Twig")

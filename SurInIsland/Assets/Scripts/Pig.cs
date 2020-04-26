@@ -31,6 +31,7 @@ public class Pig : MonoBehaviour
 
     //[SerializeField]
     //private GameObject go_meat_row_item_prefab; // 죽으면 나올 아이템
+
     //private AudioSource theAudio;
     //[SerializeField] private AudioClip[] sound_pig_Normal;
     //[SerializeField] private AudioClip sound_pig_Hurt;
@@ -41,6 +42,7 @@ public class Pig : MonoBehaviour
     void Start()
     {
         //theAudio.GetComponent<AudioSource>();
+
         currentTime = waitTime;
         isAction = true;
     }
@@ -163,6 +165,7 @@ public class Pig : MonoBehaviour
             }
 
             //PlaySE(sound_pig_Hurt);
+
             anim.SetTrigger("Hurt");
             Run(_targetPos);
         }
