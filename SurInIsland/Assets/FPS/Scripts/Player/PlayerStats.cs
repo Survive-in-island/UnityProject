@@ -51,6 +51,8 @@ namespace DarkTreeFPS
 
         public static bool isPlayerDead = false;
 
+
+
         #region utility objects
         private Rigidbody playerRigidbody;
         private FPSController controller;

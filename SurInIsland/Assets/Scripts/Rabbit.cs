@@ -19,7 +19,7 @@ public class Rabbit : MonoBehaviour
     private bool isAction; // 행동중인지 아닌지 판별
     private bool isWalking;
     private bool isRunning; // 뛰는지 안뛰는지 판별
-    private bool isDead;
+    private bool isDead = false;
 
 
     [SerializeField]
@@ -64,11 +64,12 @@ public class Rabbit : MonoBehaviour
 
     private void Rotation()
     {
-        if (isRunning || isWalking)
+        if (isRunning)
         {
             Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, direction.y, 0f), 0.01f);
             rigid.MoveRotation(Quaternion.Euler(_rotation));
         }
+        Debug.Log("아니 이게 왜 안나오는거야");
     }
 
 
@@ -91,6 +92,7 @@ public class Rabbit : MonoBehaviour
         isRunning = false;
         isAction = true;
         isWalking = false;
+
         applySpeed = walkSpeed;
 
         anim.SetBool("isRun", isRunning);
@@ -117,20 +119,18 @@ public class Rabbit : MonoBehaviour
         Debug.Log("대기");
     }
 
-    private void Run()          // 나중에 피격당했을때로 바꿀 것.
+    private void Run()        
     {
-        direction = Quaternion.LookRotation(transform.position).eulerAngles;
-
         isRunning = true;
         anim.SetBool("isRun", isRunning);
-        //Debug.Log("뛰기");
-        currentTime = waitTime;
+        currentTime = runTime;
         applySpeed = walkSpeed;     // 이거땜에 오류 생기기도
     }
 
     private void HurtRun(Vector3 _targetPos)          
     {
         direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+
         currentTime = runTime;          // 이거땜에 오류 생기기도
         applySpeed = runSpeed;
         isWalking = false;

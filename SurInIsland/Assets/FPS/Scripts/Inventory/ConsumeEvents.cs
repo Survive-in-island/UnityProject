@@ -26,7 +26,7 @@ namespace DarkTreeFPS {
 
         UnityAction addHealth, addSatiety, addHydratation;
 
-        //private StatusController kdPlayerStatus;
+        //public StatusController kdPlayerStatus;
 
         private void Start()
         {
@@ -65,6 +65,7 @@ namespace DarkTreeFPS {
         public void AddHydratation()
         {
             playerStats.AddHydratation(pointsToAdd);
+            //kdPlayerStatus.IncreaseThirsty(pointsToAdd);
         }
 
 
