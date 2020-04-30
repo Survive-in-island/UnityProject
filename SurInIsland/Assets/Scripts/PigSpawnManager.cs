@@ -31,7 +31,7 @@ public class PigSpawnManager : MonoBehaviour
         while (!isGameOver)
         {
             // 현재 생성된 동물 개수 산출
-            int animalCount = (int)GameObject.FindGameObjectsWithTag("Pig").Length;      // 나중에 수정
+            int animalCount = (int)GameObject.FindGameObjectsWithTag("WeakAnimal").Length;      // 나중에 수정
 
             // 동물의 최대 생성 개수보다 작을때만 동물 생성
             if (animalCount < maxAnimal)

@@ -22,6 +22,8 @@ TagManager:
   - Tree
   - kdItem
   - Rabbit
+  - WeakAnimal
+  - StrongAnimal
   layers:
   - Default
   - TransparentFX

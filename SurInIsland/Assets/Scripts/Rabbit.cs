@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Rabbit : MonoBehaviour
 {
     [SerializeField]
@@ -38,9 +38,14 @@ public class Rabbit : MonoBehaviour
     [SerializeField]
     private BoxCollider boxCol;
 
+    protected NavMeshAgent nav;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        nav = GetComponent<NavMeshAgent>();
+
         currentTime = waitTime;
         isAction = true;
     }
