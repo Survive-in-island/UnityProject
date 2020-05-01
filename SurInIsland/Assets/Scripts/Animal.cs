@@ -30,6 +30,13 @@ public class Animal : MonoBehaviour
     [SerializeField] protected Animator anim;
     [SerializeField] protected Rigidbody rigid;
     [SerializeField] protected BoxCollider boxCol;
+
+    //protected AudioSource theAudio;
+    [SerializeField]
+    protected AudioSource theAudio;
+    [SerializeField] protected AudioClip[] sound_normal;
+    [SerializeField] protected AudioClip sound_hurt;
+    [SerializeField] protected AudioClip sound_dead;
     //protected NavMeshAgent nav;
 
     // Start is called before the first frame update
@@ -113,7 +120,7 @@ public class Animal : MonoBehaviour
                 return;
             }
 
-            //PlaySE(sound_pig_Hurt);
+            PlaySE(sound_hurt);
 
             anim.SetTrigger("Hurt");
         }
@@ -121,7 +128,7 @@ public class Animal : MonoBehaviour
 
     protected void Dead()
     {
-        //PlaySE(sound_pig_Dead);
+        PlaySE(sound_dead);
         isWalking = false;
         isRunning = false;
         isDead = true;
@@ -130,5 +137,17 @@ public class Animal : MonoBehaviour
 
         //Instantiate(go_meat_row_item_prefab, )
         anim.SetTrigger("Dead");
+    }
+
+    protected void PlaySE(AudioClip _clip)
+    {
+        theAudio.clip = _clip;
+        theAudio.Play();
+    }
+
+    protected void RandomSound()
+    {
+        int _random = Random.Range(0, 3);
+        PlaySE(sound_normal[_random]);
     }
 }

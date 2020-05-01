@@ -15,7 +15,7 @@ public class Pig : WeakAnimal
 
     private void RandomAction()
     {
-        //RandomSound();
+        RandomSound();
 
         int _random = Random.Range(0, 4); // 대기,풀뜯기, 두리번, 걷기
 
@@ -48,6 +48,5 @@ public class Pig : WeakAnimal
 
         Debug.Log("두리번");
     }
-
 
 }

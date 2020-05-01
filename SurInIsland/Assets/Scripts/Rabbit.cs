@@ -69,12 +69,12 @@ public class Rabbit : MonoBehaviour
 
     private void Rotation()
     {
-        if (isRunning)
+        if (isRunning || isWalking)
         {
             Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, direction.y, 0f), 0.01f);
             rigid.MoveRotation(Quaternion.Euler(_rotation));
         }
-        Debug.Log("아니 이게 왜 안나오는거야");
+        //Debug.Log("아니 이게 왜 안나오는거야");
     }
 
 

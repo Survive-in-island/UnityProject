@@ -45,13 +45,13 @@ public class Tiger : MonoBehaviour
 
     private void Move()
     {
-        if (isWalking)
+        if (isWalking || isRunning)
             rigid.MovePosition(transform.position + (transform.forward * walkSpeed * Time.deltaTime));
     }
 
     private void Rotation()
     {
-        if (isWalking)
+        if (isWalking || isRunning)
         {
             Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
             rigid.MoveRotation(Quaternion.Euler(_rotation));
@@ -89,12 +89,13 @@ public class Tiger : MonoBehaviour
         int _random = Random.Range(0, 3); // 헹동 수정하기
 
         if (_random == 0)
-            Wait();
+            //Wait();
+            Run();
         else if (_random == 1)
-            //Run();
-            TryWalk();
+            Run();
+            //TryWalk();                // 이게 자꾸 이상
         else if (_random == 2)
-            TryWalk();
+            Run();
 
     }
 
@@ -105,7 +106,20 @@ public class Tiger : MonoBehaviour
     }
 
 
-    private void Run(Vector3 _targetPos)
+    private void Run()
+    {
+        //direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+
+        currentTime = runTime;
+        isWalking = false;
+        isRunning = true;
+        currentTime = waitTime;
+        anim.SetBool("isRun", isRunning);
+
+        Debug.Log("뛰기");
+    }
+
+    private void HitRun(Vector3 _targetPos)
     {
         direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
 
@@ -140,8 +154,8 @@ public class Tiger : MonoBehaviour
             }
 
             //PlaySE(sound_pig_Hurt);
-            anim.SetTrigger("isHit");
-            Run(_targetPos);
+            //anim.SetTrigger("isHit");
+            HitRun(_targetPos);
         }
     }
 }
