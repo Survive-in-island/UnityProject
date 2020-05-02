@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.AI;
+using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class Animal : MonoBehaviour
     [SerializeField] protected float turningSpeed;
     protected float applySpeed;
 
-    protected Vector3 direction; // 방향
+    protected Vector3 destination; // 방향
 
     // 상태변수
     protected bool isAction; // 행동중인지 아닌지 판별
@@ -37,7 +37,7 @@ public class Animal : MonoBehaviour
     [SerializeField] protected AudioClip[] sound_normal;
     [SerializeField] protected AudioClip sound_hurt;
     [SerializeField] protected AudioClip sound_dead;
-    //protected NavMeshAgent nav;
+    protected NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +63,7 @@ public class Animal : MonoBehaviour
     {
         if (isWalking || isRunning)
             rigid.MovePosition(transform.position + (transform.forward * applySpeed * Time.deltaTime));
+            //nav.SetDestination(transform.position + destination * 5f);
     }
 
     protected void Rotation()
@@ -70,7 +71,7 @@ public class Animal : MonoBehaviour
         if (isWalking || isRunning)
         {
             turningSpeed = Random.Range(0.01f, 0.05f);
-            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, direction.y, 0f), turningSpeed);
+            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, destination.y, 0f), turningSpeed);
             rigid.MoveRotation(Quaternion.Euler(_rotation));
         }
     }
@@ -92,10 +93,12 @@ public class Animal : MonoBehaviour
         isAction = true;
         isRunning = false;
         applySpeed = walkSpeed;
+        //nav.speed = walkSpeed;
         anim.SetBool("Walking", isWalking);
         anim.SetBool("Running", isRunning);
-
-        direction.Set(0f, Random.Range(0f, 360f), 0f);
+        //nav.ResetPath();
+        destination.Set(0f, Random.Range(0f, 360f), 0f);
+        //destination.Set(Random.Range(-0.2f, 0.2f), 0f, Random.Range(0.5f, 1f));
     }
 
     protected void TryWalk()
@@ -104,6 +107,8 @@ public class Animal : MonoBehaviour
         anim.SetBool("Walking", isWalking);
         currentTime = walkTime;
         applySpeed = walkSpeed;
+        //nav.speed = walkSpeed;
+
         Debug.Log("걷기");
     }
 
