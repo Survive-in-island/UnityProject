@@ -20,6 +20,7 @@ public class Animal : MonoBehaviour
     protected bool isWalking; // 걷는지 안 걷는지 판별
     protected bool isRunning;
     protected bool isDead;
+    protected bool isChasing; // 추격중인지 판별
 
     [SerializeField] protected float walkTime; // 걷기 시간
     [SerializeField] protected float waitTime; // 대기 시간
@@ -38,10 +39,12 @@ public class Animal : MonoBehaviour
     [SerializeField] protected AudioClip sound_hurt;
     [SerializeField] protected AudioClip sound_dead;
     protected NavMeshAgent nav;
+    protected FieldOfViewAngle theViewAngle;
 
     // Start is called before the first frame update
     void Start()
     {
+        theViewAngle = GetComponent<FieldOfViewAngle>();
         //theAudio.GetComponent<AudioSource>();
         //nav = GetComponent<NavMeshAgent>();
         currentTime = waitTime;
@@ -49,7 +52,7 @@ public class Animal : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!isDead)
         {
@@ -82,7 +85,7 @@ public class Animal : MonoBehaviour
         if (isAction)
         {
             currentTime -= Time.deltaTime;
-            if (currentTime <= 0)
+            if (currentTime <= 0 && !isChasing)
                 ResetAnim(); // 다음 랜덤 행동 개시
         }
     }

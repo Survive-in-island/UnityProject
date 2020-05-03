@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DarkTreeFPS;
 
 public class FieldOfViewAngle : MonoBehaviour
 {
@@ -8,33 +9,28 @@ public class FieldOfViewAngle : MonoBehaviour
     [SerializeField] private float viewDistance; // 시야거리 10미터
     [SerializeField] private LayerMask targetMask; // 타켓 마스크 (플레이어)
 
-    private Pig thePig;
+    //private Pig thePig;
+    private FPSController thePlayer;
+    //[SerializeField]
+    //private GameObject player;
 
     void Start()
     {
-        thePig = GetComponent<Pig>();
+        //thePig = GetComponent<Pig>();
+        thePlayer = FindObjectOfType<FPSController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public Vector3 GetTargetPos()
     {
-        View();
+        //Debug.Log(thePlayer.transform.position);
+        return thePlayer.transform.position;
+        //return player.transform.position;
     }
 
-    private Vector3 BoundaryAngle(float _angle)
+
+
+    public bool View()
     {
-        _angle += transform.eulerAngles.y;
-        return new Vector3(Mathf.Sin(_angle * Mathf.Deg2Rad), 0f, Mathf.Cos(_angle * Mathf.Deg2Rad));       // 삼각함수를 이용해서 벡터값 반환
-    }
-
-    private void View()
-    {
-        Vector3 _leftBoundary = BoundaryAngle(-viewAngle * 0.5f);
-        Vector3 _rightBoundary = BoundaryAngle(viewAngle * 0.5f);
-
-        //Debug.DrawRay(transform.position + transform.up, _leftBoundary, Color.red);
-        //Debug.DrawRay(transform.position + transform.up, _rightBoundary, Color.red);
-
         Collider[] _target = Physics.OverlapSphere(transform.position, viewDistance, targetMask);
 
         for (int i = 0; i < _target.Length; i++)
@@ -54,11 +50,13 @@ public class FieldOfViewAngle : MonoBehaviour
                         {     
                             Debug.Log("플레이어가 돼지 시야 내에 있음");
                             //Debug.DrawRay(transform.position + transform.up, _direction, Color.blue);
-                            thePig.Run(_hit.transform.position);
+                            //thePig.Run(_hit.transform.position);
+                            return true;
                         }
                     }
                 }
             }
         }
+        return false;
     }
 }
