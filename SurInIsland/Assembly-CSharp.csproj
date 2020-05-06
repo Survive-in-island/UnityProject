@@ -103,7 +103,7 @@
     <Compile Include="Assets\Scripts\Animal.cs" />
     <Compile Include="Assets\Scripts\FieldOfViewAngle.cs" />
     <Compile Include="Assets\Scripts\Grass.cs" />
-    <Compile Include="Assets\Scripts\ItemPickUP.cs" />
+    <Compile Include="Assets\Scripts\ItemPickUp.cs" />
     <Compile Include="Assets\Scripts\ItemSpawnManager.cs" />
     <Compile Include="Assets\Scripts\MyGizmos.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />
