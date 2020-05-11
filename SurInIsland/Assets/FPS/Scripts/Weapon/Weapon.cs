@@ -1035,5 +1035,6 @@ namespace DarkTreeFPS
             if (ammoText)
                 ammoText.text = "";
         }
+
     }
 }

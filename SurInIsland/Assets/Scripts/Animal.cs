@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Animal : MonoBehaviour
 {
-    [SerializeField] protected string animalName; // 동물의 이름
+    [SerializeField] public string animalName; // 동물의 이름
     [SerializeField] protected int hp; // 동물의 체력
 
     [SerializeField] protected float walkSpeed; // 걷기 스피드
@@ -13,13 +13,16 @@ public class Animal : MonoBehaviour
     [SerializeField] protected float turningSpeed;
     protected float applySpeed;
 
+    [SerializeField]
+    private GameObject go_meat_item_prefab; // 부서지면 나올 아이템
+
     protected Vector3 destination; // 방향
 
     // 상태변수
     protected bool isAction; // 행동중인지 아닌지 판별
     protected bool isWalking; // 걷는지 안 걷는지 판별
     protected bool isRunning;
-    protected bool isDead;
+    public bool isDead;
     protected bool isChasing; // 추격중인지 판별
 
     [SerializeField] protected float walkTime; // 걷기 시간
@@ -143,7 +146,10 @@ public class Animal : MonoBehaviour
 
         this.gameObject.tag = "Untagged";
 
-        //Instantiate(go_meat_row_item_prefab, )
+        ////////////////////////////
+        Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
+        ////////////////
+
         anim.SetTrigger("Dead");
     }
 

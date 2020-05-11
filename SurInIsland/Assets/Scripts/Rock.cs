@@ -58,7 +58,6 @@ public class Rock : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Instantiate(go_rock_item_prefab, go_rock.transform.position, Quaternion.identity);
-
         }
 
         Destroy(go_rock);
