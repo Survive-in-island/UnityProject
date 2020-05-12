@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DarkTreeFPS;
 
 public class StatusController : MonoBehaviour
 {
@@ -148,7 +149,11 @@ public class StatusController : MonoBehaviour
     public void IncreaseHP(int _count)
     {
         if (currentHp + _count < hp)
-            currentHp += _count;
+        {
+            //currentHp += _count;
+            //currentHp = 
+        }
+
         else
             currentHp = hp;
     }

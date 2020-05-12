@@ -51,7 +51,8 @@ namespace DarkTreeFPS
 
         public static bool isPlayerDead = false;
 
-
+        /// //////////////////////////////////
+        public StatusController playerStat;
 
         #region utility objects
         private Rigidbody playerRigidbody;
@@ -70,6 +71,10 @@ namespace DarkTreeFPS
         
         private void Start()
         {
+            //////////////////////////////////////////
+            playerStat = GetComponent<StatusController>();
+            //////////////////////////////////////////
+
             isPlayerDead = false;
 
             playerRigidbody = GetComponent<Rigidbody>();
@@ -176,11 +181,15 @@ namespace DarkTreeFPS
 
         public void AddHydratation(int points)
         {
+            ///////////////////////////////////
+            playerStat.IncreaseThirsty(points);
+            /////////////////////////////////////
             hydratation += points;
         }
 
         public void AddHealth(int hp)
         {
+            playerStat.IncreaseHP(hp);
             health += hp;
         }
 
