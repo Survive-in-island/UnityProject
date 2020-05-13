@@ -45,6 +45,11 @@ namespace DarkTreeFPS
         public int hungerDamage = 1;
         private float satietyTimer;
 
+        //public int hungry = 100;
+        //public float hungrySubstractionRate = 5f;
+        //public int hungerDamage = 1;
+        //private float satietyTimer;
+
         public Text playerStats;
 
         private Color damageScreenColor_temp;
@@ -176,7 +181,13 @@ namespace DarkTreeFPS
 
         public void AddSatiety(int points)
         {
+            playerStat.IncreaseHungry(points);
             satiety += points;
+        }
+
+        public void AddHungry(int points)
+        {
+
         }
 
         public void AddHydratation(int points)

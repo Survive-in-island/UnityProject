@@ -25,18 +25,38 @@ public class kdActionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckItem();
+        CheckAction();
         TryAction();
     }
 
     private void TryAction()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.T))        // 고기 해체만
         {
-            CheckItem();
-            CanPickUP();
+            CheckAction();
+            //CanPickUP();
+            CanMeat();
         }
     }
+
+    private void CanMeat()
+    {
+        if (dissolveActivated == true)
+        {
+            if (hitInfo.transform.tag == "WeakAnimal" || hitInfo.transform.tag == "Pig" && hitInfo.transform.GetComponent<Animal>().isDead && !isDissolving)
+            {
+                isDissolving = true;
+                InfoDisappear();
+
+                // 고기 해체 시작 
+            }
+        }
+    }
+
+    //IEnumerator MeatCoroutine()
+    //{
+
+    //}
 
     private void CanPickUP()
     {
@@ -51,36 +71,44 @@ public class kdActionController : MonoBehaviour
         }
     }
 
-    private void CheckItem()
+    private void CheckAction()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask))
         {
             if (hitInfo.transform.tag == "Item")     // kdItem으로 바꿀수도
             {
-                ItemInfoAppear();
+                //ItemInfoAppear();
+            }
+            else if(hitInfo.transform.tag == "WeakAnimal" || hitInfo.transform.tag == "Pig")        // 태그는 바꿔야될수도 
+            {
+                MeatInfoAppear();
             }
         }
         else
             InfoDisappear();
     }
 
-    private void ItemInfoAppear()
-    {
-        pickupActivated = true;
-        actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUP>().item.itemName + " 획득 " + "<color=yellow>" + "(E)" + "</color>";
-    }
-
-    //private void MeatInfoAppear()
+    //private void ItemInfoAppear()
     //{
-    //    dissolveActivated = true;
+    //    pickupActivated = true;
     //    actionText.gameObject.SetActive(true);
-    //    actionText.text = hitInfo.transform.GetComponent<Pig>().item.itemName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
+    //    actionText.text = hitInfo.transform.GetComponent<ItemPickUP>().item.itemName + " 획득 " + "<color=yellow>" + "(E)" + "</color>";
     //}
+
+    private void MeatInfoAppear()
+    {
+        if (hitInfo.transform.GetComponent<Animal>().isDead)
+        {
+            dissolveActivated = true;
+            actionText.gameObject.SetActive(true);
+            actionText.text = hitInfo.transform.GetComponent<Animal>().animalName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
+        }
+    }
 
     private void InfoDisappear()
     {
         pickupActivated = false;
+        dissolveActivated = false;
         actionText.gameObject.SetActive(false);
     }
 }
