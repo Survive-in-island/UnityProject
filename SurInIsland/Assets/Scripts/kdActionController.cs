@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DarkTreeFPS;
 
 
 public class kdActionController : MonoBehaviour
@@ -21,6 +22,13 @@ public class kdActionController : MonoBehaviour
 
     [SerializeField]
     private Text actionText;
+
+    //[SerializeField]
+    //private Inventory theInventory;
+
+    //[SerializeField]
+    //private Transform tf_MeatDissolveTool;  // 고기 해체
+
 
     // Update is called once per frame
     void Update()
@@ -49,14 +57,30 @@ public class kdActionController : MonoBehaviour
                 InfoDisappear();
 
                 // 고기 해체 시작 
+                StartCoroutine(MeatCoroutine());
             }
         }
     }
 
-    //IEnumerator MeatCoroutine()
-    //{
+    IEnumerator MeatCoroutine()
+    {
+        // 고기 해체 애니메이션 이 밑에 추가해줄 것
 
-    //}
+        yield return new WaitForSeconds(0.2f);
+
+        // tf_MeatDissolveTool.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.2f);
+        // 고기 해체 사운드 
+        yield return new WaitForSeconds(1.8f);
+
+        // 인벤토리에 넣어주기 
+        //theInventory.GiveItem(hitInfo.transform.GetComponent<Animal>().GetItem());
+
+        // 여기는 애니메이션 종료될때
+
+        isDissolving = false;
+    }
 
     private void CanPickUP()
     {
@@ -111,4 +135,6 @@ public class kdActionController : MonoBehaviour
         dissolveActivated = false;
         actionText.gameObject.SetActive(false);
     }
+
+
 }

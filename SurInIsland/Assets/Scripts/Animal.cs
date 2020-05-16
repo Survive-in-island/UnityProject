@@ -44,6 +44,10 @@ public class Animal : MonoBehaviour
     protected NavMeshAgent nav;
     protected FieldOfViewAngle theViewAngle;
 
+
+    [SerializeField]
+    private Item item_Prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -164,4 +168,11 @@ public class Animal : MonoBehaviour
         int _random = Random.Range(0, 3);
         PlaySE(sound_normal[_random]);
     }
+
+    public Item GetItem()
+    {
+        Destroy(this.gameObject, 3f);
+        return item_Prefab;
+    }
+
 }

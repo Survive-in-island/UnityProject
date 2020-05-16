@@ -136,26 +136,26 @@ namespace DarkTreeFPS
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 고기 해체 하기 위한 코드
-        [SerializeField]
-        private Transform tf_MeatDissolveTool;      // 고기 해체 툴
+        //[SerializeField]
+        //private Transform tf_MeatDissolveTool;      // 고기 해체 툴
 
-        private bool dissolveActivated = false;  // 고기 해체 가능할 시 true
-        private bool isDissolving = false; // 고기 해체 충에는 true
+        //private bool dissolveActivated = false;  // 고기 해체 가능할 시 true
+        //private bool isDissolving = false; // 고기 해체 충에는 true
 
-        [SerializeField]
-        private Text actionText;
+        //[SerializeField]
+        //private Text actionText;
 
-        private RaycastHit hitInfo; // 충돌체 정보 저장
+        //private RaycastHit hitInfo; // 충돌체 정보 저장
 
 
-        private void MeatInfoAppear(Item item)
-        {
-            dissolveActivated = true;
-            item.gameObject.SetActive(true);
+        //private void MeatInfoAppear(Item item)
+        //{
+        //    dissolveActivated = true;
+        //    item.gameObject.SetActive(true);
 
-            //Debug.Log("해체하기");
-            actionText.text = hitInfo.transform.GetComponent<Animal>().animalName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
-        }
+        //    //Debug.Log("해체하기");
+        //    actionText.text = hitInfo.transform.GetComponent<Animal>().animalName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
+        //}
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
