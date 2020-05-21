@@ -13,6 +13,7 @@ public class kdActionController : MonoBehaviour
     private bool pickupActivated = false; // 습득 가능할 시 true
     private bool dissolveActivated = false; // 고기 해체 가능할 시 true
     private bool isDissolving = false; // 고기 해체 중에는 true
+    private bool fireLookActivated = false; // 불을 바라볼 시 true
 
     private RaycastHit hitInfo; // 충돌체 정보 저장
 
@@ -22,6 +23,7 @@ public class kdActionController : MonoBehaviour
 
     [SerializeField]
     private Text actionText;
+
 
     //[SerializeField]
     //private Inventory theInventory;
@@ -44,6 +46,7 @@ public class kdActionController : MonoBehaviour
             CheckAction();
             //CanPickUP();
             CanMeat();
+            CanDropFire();
         }
     }
 
@@ -82,6 +85,17 @@ public class kdActionController : MonoBehaviour
         isDissolving = false;
     }
 
+    private void CanDropFire()
+    {
+        if (fireLookActivated) {
+            if (hitInfo.transform.tag == "Fire" && hitInfo.transform.GetComponent<Fire>().GetIsFire())
+            {
+                // 손에 들고 있는 아이템을 불에 넣음 == 선택된 퀵슬롯의 아이템 (Null)
+            }
+       
+        }
+    }
+        
     private void CanPickUP()
     {
         if (pickupActivated)
@@ -103,10 +117,12 @@ public class kdActionController : MonoBehaviour
             {
                 //ItemInfoAppear();
             }
-            else if(hitInfo.transform.tag == "WeakAnimal" || hitInfo.transform.tag == "Pig")        // 태그는 바꿔야될수도 
+            else if (hitInfo.transform.tag == "WeakAnimal" || hitInfo.transform.tag == "Pig")        // 태그는 바꿔야될수도 
             {
                 MeatInfoAppear();
             }
+            else if (hitInfo.transform.tag == "Fire")
+                FireInfoAppear();
         }
         else
             InfoDisappear();
@@ -116,7 +132,7 @@ public class kdActionController : MonoBehaviour
     //{
     //    pickupActivated = true;
     //    actionText.gameObject.SetActive(true);
-    //    actionText.text = hitInfo.transform.GetComponent<ItemPickUP>().item.itemName + " 획득 " + "<color=yellow>" + "(E)" + "</color>";
+    //    actionText.text = hitInfo.transform.GetComponent<ItemPickUP>().item.itemName + " 획득 " + "<color=yellow>" + "(T)" + "</color>";
     //}
 
     private void MeatInfoAppear()
@@ -125,7 +141,18 @@ public class kdActionController : MonoBehaviour
         {
             dissolveActivated = true;
             actionText.gameObject.SetActive(true);
-            actionText.text = hitInfo.transform.GetComponent<Animal>().animalName + " 해체하기 " + "<color=yellow>" + "(E)" + "</color>";
+            actionText.text = hitInfo.transform.GetComponent<Animal>().animalName + " 해체하기 " + "<color=yellow>" + "(T)" + "</color>";
+        }
+    }
+
+    private void FireInfoAppear()
+    {
+        fireLookActivated = true;
+        actionText.gameObject.SetActive(true);
+
+        if (hitInfo.transform.GetComponent<Fire>().GetIsFire())
+        {
+            actionText.text = "선택된 아이템 불에 넣기 " + "<color=yellow>" + "(T)" + "</color>";
         }
     }
 
@@ -133,6 +160,7 @@ public class kdActionController : MonoBehaviour
     {
         pickupActivated = false;
         dissolveActivated = false;
+        fireLookActivated = false;
         actionText.gameObject.SetActive(false);
     }
 

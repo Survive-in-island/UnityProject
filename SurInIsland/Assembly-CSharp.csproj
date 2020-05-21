@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Burn.cs" />
     <Compile Include="Assets\Scripts\FieldOfViewAngle.cs" />
     <Compile Include="Assets\Scripts\Fire.cs" />
+    <Compile Include="Assets\Scripts\FoodOnFire.cs" />
     <Compile Include="Assets\Scripts\Grass.cs" />
     <Compile Include="Assets\Scripts\ItemPickUp.cs" />
     <Compile Include="Assets\Scripts\ItemSpawnManager.cs" />
