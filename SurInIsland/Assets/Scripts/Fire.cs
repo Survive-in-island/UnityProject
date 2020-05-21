@@ -69,6 +69,7 @@ public class Fire : MonoBehaviour
         {
             if (currentDamageTime <= 0)
             {
+                other.GetComponent<Burn>().StartBurning();
                 thePlayerStatus.DecreaseHP(damage);
                 currentDamageTime = damageTime;
             }

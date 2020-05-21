@@ -878,6 +878,23 @@ MonoBehaviour:
   - {fileID: 1806302043}
   - {fileID: 23262644}
   - {fileID: 2143570129}
+--- !u!114 &278523927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278523919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d7e02597800704494c5c1a276608b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  damageTime: 0.5
+  durationTime: 3
+  flame_prefab: {fileID: 8991459246510323601, guid: eabba984a03295546a86a018f211bf92,
+    type: 3}
 --- !u!4 &296016977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5024942982638614815, guid: 74a98900c25e44c4b89c34986f45cc29,
@@ -5076,7 +5093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1366579511}
   m_Layer: 0
-  m_Name: PlayerKni
+  m_Name: Player+Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
