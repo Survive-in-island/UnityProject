@@ -95,6 +95,15 @@ public class kdActionController : MonoBehaviour
        
         }
     }
+
+    private void DropAnItem(Item _selectedItem)
+    {
+        switch (_selectedItem.type)
+        {
+
+
+        }
+    }
         
     private void CanPickUP()
     {

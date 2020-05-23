@@ -82,4 +82,24 @@ public class Burn : MonoBehaviour
         isBurning = false;
         Destroy(go_tempFlame);
     }
+
+    //[SerializeField]
+    //private float time;         // 익히는데 걸리는 시간
+    //private float currentTime;
+    //[SerializeField]
+    //private GameObject go_CookedItemPrefab; // 완성된 아이템
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.transform.tag == "Meat")
+    //    {
+    //        currentTime += Time.deltaTime;
+
+    //        if (currentTime >= time)
+    //        {
+    //            Instantiate(go_CookedItemPrefab, transform.position, Quaternion.Euler(transform.eulerAngles));
+    //            Destroy(gameObject);
+    //        }
+    //    }
+    //}
 }

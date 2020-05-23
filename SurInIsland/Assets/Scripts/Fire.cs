@@ -45,12 +45,12 @@ public class Fire : MonoBehaviour
     {
         currentDurationTime -= Time.deltaTime;
 
-        if(currentDamageTime > 0)
+        if (currentDamageTime > 0)
         {
             currentDamageTime -= Time.deltaTime;
         }
 
-        if(currentDurationTime <= 0)
+        if (currentDurationTime <= 0)
         {
             // 불 꺼짐
             Off();
@@ -65,7 +65,7 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(isFire && other.transform.tag == "Player")
+        if (isFire && other.transform.tag == "Player")
         {
             if (currentDamageTime <= 0)
             {
@@ -74,10 +74,29 @@ public class Fire : MonoBehaviour
                 currentDamageTime = damageTime;
             }
         }
+
+        if (other.transform.tag == "Item")
+        {
+            currentTime += Time.deltaTime;
+
+            if (currentTime >= time)
+            {
+                Instantiate(go_CookedItemPrefab, transform.position, Quaternion.Euler(transform.eulerAngles));
+                Destroy(gameObject);
+            }
+        }
     }
+
 
     public bool GetIsFire()
     {
         return isFire;
     }
+
+    [SerializeField]
+    private float time;         // 익히는데 걸리는 시간
+    private float currentTime;
+    [SerializeField]
+    private GameObject go_CookedItemPrefab; // 완성된 아이템
+
 }
