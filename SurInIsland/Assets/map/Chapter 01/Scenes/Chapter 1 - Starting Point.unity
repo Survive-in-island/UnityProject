@@ -602,6 +602,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1755876992}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &130063353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6745915259047570061, guid: 770274626b5a55541bc7ad8e0aa82746,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275783863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &148448172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 915865602299485490, guid: 0766afb9c37915343bd6aac1f2c3801c,
@@ -802,8 +808,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195a0bb5797e90d49b66f6c1bc74feec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActivated: 0
+  isPreviewActivated: 0
   go_BaseUI: {fileID: 1438804555}
-  craft_fire: []
+  craft_fire:
+  - craftName: Fire
+    go_Prefab: {fileID: 4676570884579640422, guid: 2ae0b379235f7e84cb38e421b3f102f5,
+      type: 3}
+    go_PreviewPrefab: {fileID: 1759180303860220624, guid: c517da1654826b445b60c5c890ccc111,
+      type: 3}
+  tf_Player: {fileID: 130063353}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  range: 10
 --- !u!224 &228957093 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6813003764576035791, guid: 770274626b5a55541bc7ad8e0aa82746,
@@ -1328,7 +1346,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 359864932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 193461811}
+        m_MethodName: SlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &362251614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,7 +5621,7 @@ GameObject:
   - component: {fileID: 1438804558}
   - component: {fileID: 1438804557}
   m_Layer: 5
-  m_Name: Craft_Manual_UI
+  m_Name: Craft_Manual_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

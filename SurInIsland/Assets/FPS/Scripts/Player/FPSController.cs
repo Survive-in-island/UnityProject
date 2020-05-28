@@ -15,12 +15,13 @@ namespace DarkTreeFPS
 
         /// ///////////////////////////////////////////////////////
         private StatusController theStatusController;
+        private CraftManual theCraft;
         /// ///////////////////////////////////////////////////////
 
         [Header("MouseLook Settings")]
 
         private Vector2 clampInDegrees = new Vector2(360, 180);
-        public bool lockCursor;
+        public bool lockCursor = true;
         public Vector2 sensitivity = new Vector2(0.5f, 0.5f);
         public Vector2 smoothing = new Vector2(3, 3);
         
@@ -68,6 +69,7 @@ namespace DarkTreeFPS
 
             /////////////////////////////////////////////////////////////
             theStatusController = FindObjectOfType<StatusController>();
+            theCraft = FindObjectOfType<CraftManual>();
             /////////////////////////////////////////////////////////////
         }
 
@@ -79,12 +81,13 @@ namespace DarkTreeFPS
                 StandaloneMovement();
             
 
-            if (lockCursor)
+            if (lockCursor && !theCraft.isActivated)
             {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-            else
+
+            if(theCraft.isActivated)
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
