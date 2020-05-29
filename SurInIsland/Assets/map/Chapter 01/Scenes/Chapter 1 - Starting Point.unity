@@ -3587,6 +3587,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3445ab17441873f4087814a09d9c41c2, type: 3}
+--- !u!4 &1021877029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4676570886063182566, guid: 2ae0b379235f7e84cb38e421b3f102f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4676570883991266118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1039536601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4477935250407756, guid: 826ffc5d8c7db2342a086c89348db5f0,
@@ -5333,6 +5339,50 @@ MonoBehaviour:
   type: 3
   _color: {r: 0.120666504, g: 1, b: 0, a: 1}
   _radius: 0.5
+--- !u!1 &1345622831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345622832}
+  - component: {fileID: 1345622833}
+  m_Layer: 0
+  m_Name: RoastRange
+  m_TagString: Roast
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1345622832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345622831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1021877029}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1345622833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345622831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.207256, y: 9.865263, z: 3.0661967}
+  m_Center: {x: 0, y: 4.703608e-16, z: 1.0330985}
 --- !u!1 &1348233469
 GameObject:
   m_ObjectHideFlags: 0
@@ -9755,6 +9805,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4676570884102791842, guid: 2ae0b379235f7e84cb38e421b3f102f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4676570884579640422, guid: 2ae0b379235f7e84cb38e421b3f102f5,
         type: 3}
       propertyPath: m_Name

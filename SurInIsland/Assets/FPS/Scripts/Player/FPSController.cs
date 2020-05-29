@@ -75,19 +75,37 @@ namespace DarkTreeFPS
 
         private void Update()
         {
+            //if (mouseLookEnabled && !InventoryManager.showInventory)
+            //    MouseLook();
+
+            //    StandaloneMovement();
+
+
+            //if (lockCursor && !theCraft.isActivated)
+            //{
+            //    Cursor.visible = false;
+            //    Cursor.lockState = CursorLockMode.Locked;
+            //}
+
+            //if(theCraft.isActivated)
+            //{
+            //    Cursor.visible = true;
+            //    Cursor.lockState = CursorLockMode.None;
+            //}
+
             if (mouseLookEnabled && !InventoryManager.showInventory)
                 MouseLook();
-            
-                StandaloneMovement();
-            
 
-            if (lockCursor && !theCraft.isActivated)
+            StandaloneMovement();
+
+
+            if (lockCursor)
             {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
 
-            if(theCraft.isActivated)
+            else
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DarkTreeFPS;
 
 [System.Serializable]
 public class Craft
@@ -39,6 +40,8 @@ public class CraftManual : MonoBehaviour
 
     private Transform buildPosition;
 
+    FPSController controller;
+
     public void SlotClick(int _slotNumber)
     {
         go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), Quaternion.identity);
@@ -51,8 +54,11 @@ public class CraftManual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        controller = FindObjectOfType<FPSController>();
+
         if (Input.GetKeyDown(KeyCode.P) && !isPreviewActivated)            // 바꿔야 될 수도
         {
+            controller.lockCursor = false;
             Window();
         }
 
@@ -70,13 +76,13 @@ public class CraftManual : MonoBehaviour
     {
         if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
         {
-            Instantiate(go_Prefab, buildPosition.transform.position, Quaternion.identity);
+            Instantiate(go_Prefab, buildPosition.transform.position, go_Preview.transform.rotation);
             Destroy(go_Preview);
             isActivated = false;
             isPreviewActivated = false;
             go_Prefab = null;
             go_Prefab = null;
-
+            controller.lockCursor = true;
         }
     }
 
@@ -90,14 +96,24 @@ public class CraftManual : MonoBehaviour
         go_Preview = null;
 
         go_BaseUI.SetActive(false);
+
+        controller.lockCursor = true;
+
     }
 
     private void PreviewPositionUpdate()
     {
-        if(Physics.Raycast(tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), tf_Player.forward, out hitInfo, range, layerMask)){
+        if(Physics.Raycast(tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 3), tf_Player.forward, out hitInfo, range, layerMask)){
             if(hitInfo.transform != null)
             {
                 Vector3 _location = hitInfo.point;
+
+                if (Input.GetKeyDown(KeyCode.T))
+                    go_Preview.transform.Rotate(0, -90f, 0f);
+                if (Input.GetKeyDown(KeyCode.Y))
+                    go_Preview.transform.Rotate(0, 90f, 0f);
+
+                _location.Set(Mathf.Round(_location.x), Mathf.Round(_location.y / 0.1f) * 0.1f, Mathf.Round(_location.z));
                 go_Preview.transform.position = _location;
             }
         }
