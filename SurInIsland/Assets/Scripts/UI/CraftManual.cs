@@ -44,7 +44,9 @@ public class CraftManual : MonoBehaviour
 
     public void SlotClick(int _slotNumber)
     {
-        go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), Quaternion.identity);
+        //go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), Quaternion.identity);
+        go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.forward, Quaternion.identity);
+
         go_Prefab = craft_fire[_slotNumber].go_Prefab;
         buildPosition = go_Preview.transform;
         isPreviewActivated = true;
@@ -103,7 +105,8 @@ public class CraftManual : MonoBehaviour
 
     private void PreviewPositionUpdate()
     {
-        if(Physics.Raycast(tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 3), tf_Player.forward, out hitInfo, range, layerMask)){
+        //if(Physics.Raycast(tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 3), tf_Player.forward, out hitInfo, range, layerMask))
+        if (Physics.Raycast(tf_Player.position, tf_Player.forward, out hitInfo, range, layerMask)){
             if(hitInfo.transform != null)
             {
                 Vector3 _location = hitInfo.point;
