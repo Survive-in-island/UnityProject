@@ -10,6 +10,8 @@ public class Craft
     public string craftName;            // 이름
     public Sprite craftImage;           // 이미지
     public string craftDesc;            // 설명
+    public string[] craftNeedItem;      // 필요한 아이템
+    public int[] craftNeedItemCount;    // 필요한 아이템 개수 
     public GameObject go_Prefab;        // 실제 설치될 프리팹
     public GameObject go_PreviewPrefab; // 미리보기 프리팹
 }
