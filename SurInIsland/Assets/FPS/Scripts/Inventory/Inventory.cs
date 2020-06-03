@@ -135,6 +135,17 @@ namespace DarkTreeFPS
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+
+        //public int GetItemCount(string _itemName)
+        //{
+        //    int temp = SearchSlotItem()
+        //}
+
+        //private int SearchSlotItem(Item[] _slots, string _itemName)
+        //{
+
+        //}
         // 고기 해체 하기 위한 코드
         //[SerializeField]
         //private Transform tf_MeatDissolveTool;      // 고기 해체 툴

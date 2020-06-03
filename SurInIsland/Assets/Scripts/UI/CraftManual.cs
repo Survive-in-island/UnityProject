@@ -59,6 +59,12 @@ public class CraftManual : MonoBehaviour
     private Text[] text_SlotName;
     [SerializeField]
     private Text[] text_SlotDesc;
+    [SerializeField]
+    private Text[] text_SlotNeedItem;
+
+    // 필요한 컴포넌트
+    private Inventory theInventory;
+
 
     private Transform buildPosition;
 
@@ -66,6 +72,7 @@ public class CraftManual : MonoBehaviour
 
     void Start()
     {
+        theInventory = FindObjectOfType<Inventory>();
         tabNumber = 0;
         page = 1;
         TabSlotSetting(craft_fire);
@@ -95,6 +102,7 @@ public class CraftManual : MonoBehaviour
             image_Slot[i].sprite = null;
             text_SlotDesc[i].text = "";
             text_SlotName[i].text = "";
+            text_SlotNeedItem[i].text = "";
             go_Slots[i].SetActive(false);
         }
     }
@@ -137,6 +145,13 @@ public class CraftManual : MonoBehaviour
             image_Slot[i - startSlotNumber].sprite = craft_SelectedTab[i].craftImage;
             text_SlotName[i - startSlotNumber].text = craft_SelectedTab[i].craftName;
             text_SlotDesc[i - startSlotNumber].text = craft_SelectedTab[i].craftDesc;
+
+            for (int x = 0; x < craft_SelectedTab[i].craftNeedItem.Length; x++)
+            {
+                text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
+                text_SlotNeedItem[i - startSlotNumber].text += "x" + craft_SelectedTab[i].craftNeedItemCount[x] + "\n";
+
+            }
         }
     }
 
@@ -144,13 +159,26 @@ public class CraftManual : MonoBehaviour
     {
         selectedSlotNumber = _slotNumber + (page - 1) * go_Slots.Length;
 
+        if (!CheckIngredient(selectedSlotNumber))
+            return;
+
         //go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), Quaternion.identity);
         go_Preview = Instantiate(craft_SelectedTab[selectedSlotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.forward, Quaternion.identity);
-
         go_Prefab = craft_SelectedTab[selectedSlotNumber].go_Prefab;
         buildPosition = go_Preview.transform;
         isPreviewActivated = true;
         go_BaseUI.SetActive(false);
+    }
+
+    private bool CheckIngredient(int _selectedSlotNumber)
+    {
+        for (int i = 0; i < craft_SelectedTab[_selectedSlotNumber].craftNeedItem.Length; i++)
+        {
+            if(theInventory)
+                return false;
+        }
+
+        return true;
     }
 
     // Update is called once per frame
