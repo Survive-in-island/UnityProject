@@ -97,14 +97,14 @@ public class CraftManual : MonoBehaviour
 
     private void ClearSlot()
     {
-        for (int i = 0; i < go_Slots.Length; i++)
-        {
-            image_Slot[i].sprite = null;
-            text_SlotDesc[i].text = "";
-            text_SlotName[i].text = "";
-            text_SlotNeedItem[i].text = "";
-            go_Slots[i].SetActive(false);
-        }
+        //for (int i = 0; i < go_Slots.Length; i++)
+        //{
+        //    image_Slot[i].sprite = null;
+        //    text_SlotDesc[i].text = "";
+        //    text_SlotName[i].text = "";
+        //    text_SlotNeedItem[i].text = "";
+        //    go_Slots[i].SetActive(false);
+        //}
     }
 
     public void RightPageSetting()
@@ -129,30 +129,31 @@ public class CraftManual : MonoBehaviour
 
     private void TabSlotSetting(Craft[] _craft_tab)
     {
-        ClearSlot();
+        //ClearSlot();
 
-        craft_SelectedTab = _craft_tab;
+        //craft_SelectedTab = _craft_tab;
 
-        int startSlotNumber = (page - 1) * go_Slots.Length;  // 4의 배수로 늘어남
+        //int startSlotNumber = (page - 1) * go_Slots.Length;  // 4의 배수로 늘어남
 
-        for (int i = startSlotNumber; i < craft_SelectedTab.Length; i++)
-        {
-            if (i == page * go_Slots.Length)
-                break;
+        //for (int i = startSlotNumber; i < craft_SelectedTab.Length; i++)
+        //{
+        //    if (i == page * go_Slots.Length)
 
-            go_Slots[i - startSlotNumber].SetActive(true);
+        //        break;
 
-            image_Slot[i - startSlotNumber].sprite = craft_SelectedTab[i].craftImage;
-            text_SlotName[i - startSlotNumber].text = craft_SelectedTab[i].craftName;
-            text_SlotDesc[i - startSlotNumber].text = craft_SelectedTab[i].craftDesc;
+        //    go_Slots[i - startSlotNumber].SetActive(true);
 
-            for (int x = 0; x < craft_SelectedTab[i].craftNeedItem.Length; x++)
-            {
-                text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
-                text_SlotNeedItem[i - startSlotNumber].text += "x" + craft_SelectedTab[i].craftNeedItemCount[x] + "\n";
+        //    image_Slot[i - startSlotNumber].sprite = craft_SelectedTab[i].craftImage;
+        //    text_SlotName[i - startSlotNumber].text = craft_SelectedTab[i].craftName;
+        //    text_SlotDesc[i - startSlotNumber].text = craft_SelectedTab[i].craftDesc;
 
-            }
-        }
+        //    for (int x = 0; x < craft_SelectedTab[i].craftNeedItem.Length; x++)
+        //    {
+        //        text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
+        //        text_SlotNeedItem[i - startSlotNumber].text += "x" + craft_SelectedTab[i].craftNeedItemCount[x] + "\n";
+
+        //    }
+        //}
     }
 
     public void SlotClick(int _slotNumber)

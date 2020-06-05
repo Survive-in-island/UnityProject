@@ -121,6 +121,7 @@
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />
     <Compile Include="Assets\Scripts\Twig.cs" />
+    <Compile Include="Assets\Scripts\UI\ComputerKit.cs" />
     <Compile Include="Assets\Scripts\UI\CraftManual.cs" />
     <Compile Include="Assets\Scripts\UI\PreviewObject.cs" />
     <Compile Include="Assets\Scripts\UI\StatusController.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Assets\map\Chapter 01\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\map\Chapter 01\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\map\Chapter 01\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <None Include="Assets\ETC\inputAssets\vechile_mega_pack\source\Shaders\Bump Spec Map.shader" />
     <None Include="Assets\map\Chapter 01\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\map\Chapter 01\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\map\Chapter 01\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
