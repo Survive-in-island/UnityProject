@@ -97,14 +97,14 @@ public class CraftManual : MonoBehaviour
 
     private void ClearSlot()
     {
-        //for (int i = 0; i < go_Slots.Length; i++)
-        //{
-        //    image_Slot[i].sprite = null;
-        //    text_SlotDesc[i].text = "";
-        //    text_SlotName[i].text = "";
-        //    text_SlotNeedItem[i].text = "";
-        //    go_Slots[i].SetActive(false);
-        //}
+        for (int i = 0; i < go_Slots.Length; i++)
+        {
+            image_Slot[i].sprite = null;
+            text_SlotDesc[i].text = "";
+            text_SlotName[i].text = "";
+            text_SlotNeedItem[i].text = "";
+            go_Slots[i].SetActive(false);
+        }
     }
 
     public void RightPageSetting()

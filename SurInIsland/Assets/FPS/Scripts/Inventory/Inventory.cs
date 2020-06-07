@@ -18,7 +18,7 @@ namespace DarkTreeFPS
         public UIInventory inventoryUI;
 
         public bool debug = true;
-
+        
         public OnAddItem onAddItem;
 
         //Method to add item to inventory
@@ -141,14 +141,19 @@ namespace DarkTreeFPS
         //{
         //    int temp = SearchSlotItem(characterItems, characterItems[0].title);
 
-        //    return temp != 0 ? temp : SearchSlotItem()
+        //    if (temp != 0)
+        //        return temp;
+
+        //    else
+        //        return 0;
+        //    //return temp != 0 ? temp : SearchSlotItem()              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
         //}
 
         //private int SearchSlotItem(List<Item> _slots, string _itemName)
         //{
-        //    for (int i = 0; i < _slots.Length; i++)
+        //    for (int i = 0; i < 18; i++)
         //    {
-
+        //        if(_itemName == _slots)
         //    }
         //}
 
