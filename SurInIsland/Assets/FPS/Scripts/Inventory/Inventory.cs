@@ -17,6 +17,8 @@ namespace DarkTreeFPS
         public List<Item> characterItems = new List<Item>();
         public UIInventory inventoryUI;
 
+        public Item[] playerItem;
+
         public bool debug = true;
         
         public OnAddItem onAddItem;
