@@ -17,21 +17,34 @@ namespace DarkTreeFPS
         public List<Item> characterItems = new List<Item>();
         public UIInventory inventoryUI;
 
-        public Item[] playerItem;
+        public List<Item>[] playerItem;
 
         public bool debug = true;
         
         public OnAddItem onAddItem;
 
+
+        public Slot[] slots;
+
+        //void Start()
+        //{
+        //    slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+        //}
         //Method to add item to inventory
         public void GiveItem(Item item)
         {
+            int i = 0;
+
             if (CheckFreeSpace() == false)
             {
                 return;
             }
 
             characterItems.Add(item);
+
+            playerItem[i].Add(item);
+            ++i;
+
             inventoryUI.AddNewItem(item);
             item.gameObject.SetActive(false);
 
@@ -141,7 +154,7 @@ namespace DarkTreeFPS
 
         //public int GetItemCount(string _itemName)
         //{
-        //    int temp = SearchSlotItem(characterItems, characterItems[0].title);
+        //    int temp = SearchSlotItem(slots, characterItems[0].title);
 
         //    if (temp != 0)
         //        return temp;
@@ -151,11 +164,11 @@ namespace DarkTreeFPS
         //    //return temp != 0 ? temp : SearchSlotItem()              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
         //}
 
-        //private int SearchSlotItem(List<Item> _slots, string _itemName)
+        //private int SearchSlotItem(List<Item>[] _items, string _itemName)
         //{
-        //    for (int i = 0; i < 18; i++)
+        //    for (int i = 0; i < _items.Length; i++)
         //    {
-        //        if(_itemName == _slots)
+        //        if (_itemName == _items[i])
         //    }
         //}
 
