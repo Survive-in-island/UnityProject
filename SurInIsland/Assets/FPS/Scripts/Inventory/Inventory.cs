@@ -33,7 +33,7 @@ namespace DarkTreeFPS
         //Method to add item to inventory
         public void GiveItem(Item item)
         {
-            int i = 0;
+            //int i = 0;
 
             if (CheckFreeSpace() == false)
             {
@@ -42,8 +42,8 @@ namespace DarkTreeFPS
 
             characterItems.Add(item);
 
-            playerItem[i].Add(item);
-            ++i;
+            //playerItem[i].Add(item);
+            //++i;
 
             inventoryUI.AddNewItem(item);
             item.gameObject.SetActive(false);

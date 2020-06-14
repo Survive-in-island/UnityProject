@@ -18,10 +18,15 @@ namespace DarkTreeFPS
 
         private WeaponManager weaponManager;
 
+        public MissionUI mission;
+
         void Start()
         {
             image = GetComponent<Image>();
             weaponManager = FindObjectOfType<WeaponManager>();
+
+            //mission = GetComponent<MissionUI>();
+            mission = FindObjectOfType<MissionUI>();
         }
         
         void Update()
@@ -35,6 +40,11 @@ namespace DarkTreeFPS
                 image.color = Color.white;
 
                 dropButton.gameObject.SetActive(true);
+
+                if (weaponName.text == "SCAR")
+                    mission.step1_Survive = true;
+
+                // mission.Test();
             }
             else
             {

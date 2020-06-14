@@ -130,15 +130,13 @@ public class CraftManual : MonoBehaviour
     private void TabSlotSetting(Craft[] _craft_tab)
     {
         //ClearSlot();
-
         //craft_SelectedTab = _craft_tab;
 
-        //int startSlotNumber = (page - 1) * go_Slots.Length;  // 4의 배수로 늘어남
+        //int startSlotNumber = (page - 1) * go_Slots.Length; // 4의 배수.
 
         //for (int i = startSlotNumber; i < craft_SelectedTab.Length; i++)
         //{
         //    if (i == page * go_Slots.Length)
-
         //        break;
 
         //    go_Slots[i - startSlotNumber].SetActive(true);
@@ -146,13 +144,6 @@ public class CraftManual : MonoBehaviour
         //    image_Slot[i - startSlotNumber].sprite = craft_SelectedTab[i].craftImage;
         //    text_SlotName[i - startSlotNumber].text = craft_SelectedTab[i].craftName;
         //    text_SlotDesc[i - startSlotNumber].text = craft_SelectedTab[i].craftDesc;
-
-        //    for (int x = 0; x < craft_SelectedTab[i].craftNeedItem.Length; x++)
-        //    {
-        //        text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
-        //        text_SlotNeedItem[i - startSlotNumber].text += "x" + craft_SelectedTab[i].craftNeedItemCount[x] + "\n";
-
-        //    }
         //}
     }
 
