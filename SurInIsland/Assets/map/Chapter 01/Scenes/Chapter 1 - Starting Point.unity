@@ -8824,6 +8824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step1_Survive: 0
   step2_: 0
+  step3_: 0
   text: {fileID: 0}
 --- !u!4 &1412640063 stripped
 Transform:

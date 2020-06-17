@@ -7,6 +7,7 @@ public class MissionUI : MonoBehaviour
 {
     public bool step1_Survive = false;
     public bool step2_ = false;
+    public bool step3_ = false;
 
     public Text text;
 
@@ -22,8 +23,11 @@ public class MissionUI : MonoBehaviour
         if (!step1_Survive)
             text.text = "살아남기 위한 총을 찾으시오";
 
-        else if (!step2_)
+        else if (!step2_ && step1_Survive)
             text.text = "사냥을 하여 허기를 채우시오";
+
+        else if (!step3_ && step1_Survive && step2_)
+            text.text = "3번째";
 
     }
 
