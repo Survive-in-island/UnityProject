@@ -23,13 +23,27 @@ namespace DarkTreeFPS
         
         public OnAddItem onAddItem;
 
-
+        // 슬롯들
         public Slot[] slots;
 
-        //void Start()
-        //{
-        //    slots = go_SlotsParent.GetComponentsInChildren<Slot>();
-        //}
+        [SerializeField]
+        private GameObject go_SlotsParent;
+
+        // 상태변수
+        public bool inventoryActivated = false;
+
+        void Start()
+        {
+            slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+
+
+        }
+        void Update()
+        {
+
+            //TryOpenInventory();           // 인벤토리 열기인데 필요 X
+        }
+
         //Method to add item to inventory
         public void GiveItem(Item item)
         {
@@ -42,8 +56,6 @@ namespace DarkTreeFPS
 
             characterItems.Add(item);
 
-            //playerItem[i].Add(item);
-            //++i;
 
             inventoryUI.AddNewItem(item);
             item.gameObject.SetActive(false);
@@ -148,27 +160,36 @@ namespace DarkTreeFPS
                 InventoryManager.showInventory = false;
         }
 
+        private void TryOpenInventory()
+        {
+
+        }
+
+        
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         ///
 
         //public int GetItemCount(string _itemName)
         //{
-        //    int temp = SearchSlotItem(slots, characterItems[0].title);
+        //    int temp = SearchSlotItem(slots, _itemName);
 
         //    if (temp != 0)
         //        return temp;
 
         //    else
         //        return 0;
-        //    //return temp != 0 ? temp : SearchSlotItem()              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
+        //    //return temp != 0 ? temp : SearchSlotItem(quickSlots, _itemName)              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
         //}
 
-        //private int SearchSlotItem(List<Item>[] _items, string _itemName)
+        //private int SearchSlotItem(Slot[] _slots, string _itemName)
         //{
-        //    for (int i = 0; i < _items.Length; i++)
+        //    for (int i = 0; i < _slots.Length; i++)
         //    {
-        //        if (_itemName == _items[i])
+        //        if (_itemName == _slots[i].)        // 원래 _slots[i].item.title 로 나와야 되는데 
+        //        {
+
+        //        }
         //    }
         //}
 

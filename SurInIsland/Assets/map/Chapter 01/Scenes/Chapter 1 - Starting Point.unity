@@ -7372,6 +7372,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6742103841935481624, guid: 770274626b5a55541bc7ad8e0aa82746,
+        type: 3}
+      propertyPath: go_SlotsParent
+      value: 
+      objectReference: {fileID: 1434763770}
     - target: {fileID: 6742103842668120890, guid: 770274626b5a55541bc7ad8e0aa82746,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -9057,6 +9062,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9222093890418623218, guid: de35aa29d709ac5439555cb8bac9a09e,
     type: 3}
   m_PrefabInstance: {fileID: 1115796490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1434763770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6742103842046043879, guid: 770274626b5a55541bc7ad8e0aa82746,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275783863}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437588783
 GameObject:
