@@ -18,6 +18,10 @@ public class Grass : MonoBehaviour
     [SerializeField]
     private GameObject go_hit_effect_prefab;
 
+    // 나올 나뭇잎 아이템
+    [SerializeField]
+    private GameObject go_leaf_prefab;
+
     private Rigidbody[] rigidbodies;
     private BoxCollider[] boxColliders;
 
@@ -62,6 +66,9 @@ public class Grass : MonoBehaviour
             rigidbodies[i].AddExplosionForce(force, transform.position, 1f);
             boxColliders[i].enabled = true;
         }
+
+        Instantiate(go_leaf_prefab, transform.position, Quaternion.Euler(transform.eulerAngles));
+
 
         Destroy(this.gameObject, destroyTime);
     }

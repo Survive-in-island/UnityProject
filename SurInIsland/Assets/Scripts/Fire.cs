@@ -65,7 +65,7 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (isFire && other.transform.tag == "Player")
+        if (isFire && other.transform.tag == "Player")          // 나중에 여기 수정
         {
             if (currentDamageTime <= 0)
             {

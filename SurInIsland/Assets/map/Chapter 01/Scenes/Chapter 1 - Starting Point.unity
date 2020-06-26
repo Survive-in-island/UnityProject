@@ -4242,7 +4242,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9c6bc95a412af744aa6f2a68597b7688,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 103.52
+      value: 104.175
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9c6bc95a412af744aa6f2a68597b7688,
         type: 3}
@@ -12726,6 +12726,8 @@ MonoBehaviour:
   destroyTime: 5
   force: 1
   go_hit_effect_prefab: {fileID: 4083232084845074354, guid: 63f7c6a2fad4497469edbf5ba595e980,
+    type: 3}
+  go_leaf_prefab: {fileID: 8612615308952313082, guid: 6d248a97af620294ab153202e81a0867,
     type: 3}
   audioSource: {fileID: 1988720530}
   effect_sound: {fileID: 8300000, guid: 91761f35c97e36a4cb8d3a03a2ac7ac1, type: 3}
