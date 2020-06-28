@@ -72,6 +72,7 @@ public class CraftManual : MonoBehaviour
     void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
+
         tabNumber = 0;
         page = 1;
         TabSlotSetting(craft_fire);
