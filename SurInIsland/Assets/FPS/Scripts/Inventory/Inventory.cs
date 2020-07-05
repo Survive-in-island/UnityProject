@@ -23,20 +23,23 @@ namespace DarkTreeFPS
         
         public OnAddItem onAddItem;
 
-        // 슬롯들
-        public Slot[] slots;
-
+        [SerializeField]
+        private GameObject go_InventoryBase;
         [SerializeField]
         private GameObject go_SlotsParent;
+
+        // 슬롯들
+        public KdSlot[] slots;
+
 
         // 상태변수
         public bool inventoryActivated = false;
 
+        // 아이템 인덱스 
+        int itemIndex = 0;
         void Start()
         {
-            slots = go_SlotsParent.GetComponentsInChildren<Slot>();
-
-
+            slots = go_SlotsParent.GetComponentsInChildren<KdSlot>();
         }
         void Update()
         {
@@ -47,7 +50,6 @@ namespace DarkTreeFPS
         //Method to add item to inventory
         public void GiveItem(Item item)
         {
-            //int i = 0;
 
             if (CheckFreeSpace() == false)
             {
@@ -61,6 +63,14 @@ namespace DarkTreeFPS
             item.gameObject.SetActive(false);
 
             if (debug) Debug.Log("Added item: " + item.title);
+
+            ////////////////////////////////////////////////////////////////////
+
+            slots[itemIndex].item = item;
+            ++itemIndex;
+            
+
+            ////////////////////////////////////////////////////////////////////
 
             //Events
             item.onPickupEvent.Invoke();

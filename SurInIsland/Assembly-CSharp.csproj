@@ -123,9 +123,9 @@
     <Compile Include="Assets\Scripts\Twig.cs" />
     <Compile Include="Assets\Scripts\UI\ComputerKit.cs" />
     <Compile Include="Assets\Scripts\UI\CraftManual.cs" />
+    <Compile Include="Assets\Scripts\UI\KdSlot.cs" />
     <Compile Include="Assets\Scripts\UI\MissionUI.cs" />
     <Compile Include="Assets\Scripts\UI\PreviewObject.cs" />
-    <Compile Include="Assets\Scripts\UI\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\StatusController.cs" />
     <Compile Include="Assets\Scripts\WeakAnimal.cs" />
     <Compile Include="Assets\Scripts\kdActionController.cs" />
