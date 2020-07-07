@@ -173,11 +173,16 @@ public class CraftManual : MonoBehaviour
     {
         for (int i = 0; i < craft_SelectedTab[_selectedSlotNumber].craftNeedItem.Length; i++)
         {
-            if(theInventory)
+            if(theInventory.GetItemCount(craft_SelectedTab[_selectedSlotNumber].craftNeedItem[i]) < craft_SelectedTab[_selectedSlotNumber].craftNeedItemCount[i])
                 return false;
         }
 
         return true;
+    }
+
+    private void UseIngredient()
+    {
+
     }
 
     // Update is called once per frame
@@ -205,6 +210,7 @@ public class CraftManual : MonoBehaviour
     {
         if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
         {
+            UseIngredient();
             Instantiate(go_Prefab, buildPosition.transform.position, go_Preview.transform.rotation);
             Destroy(go_Preview);
             isActivated = false;

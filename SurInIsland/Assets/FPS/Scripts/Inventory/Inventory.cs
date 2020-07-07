@@ -67,6 +67,7 @@ namespace DarkTreeFPS
             ////////////////////////////////////////////////////////////////////
 
             slots[itemIndex].item = item;
+            slots[itemIndex].itemCount = 1;
             ++itemIndex;
             
 
@@ -175,33 +176,35 @@ namespace DarkTreeFPS
 
         }
 
-        
+
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         ///
 
-        //public int GetItemCount(string _itemName)
-        //{
-        //    int temp = SearchSlotItem(slots, _itemName);
+        public int GetItemCount(string _itemName)
+        {
+            int temp = SearchSlotItem(slots, _itemName);
 
-        //    if (temp != 0)
-        //        return temp;
+            if (temp != 0)
+                return temp;
 
-        //    else
-        //        return 0;
-        //    //return temp != 0 ? temp : SearchSlotItem(quickSlots, _itemName)              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
-        //}
+            else
+                return 0;
+            //return temp != 0 ? temp : SearchSlotItem(quickSlots, _itemName)              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
+        }
 
-        //private int SearchSlotItem(Slot[] _slots, string _itemName)
-        //{
-        //    for (int i = 0; i < _slots.Length; i++)
-        //    {
-        //        if (_itemName == _slots[i].)        // 원래 _slots[i].item.title 로 나와야 되는데 
-        //        {
+        private int SearchSlotItem(KdSlot[] _slots, string _itemName)
+        {
+            for (int i = 0; i < _slots.Length; i++)
+            {
+                if (_itemName == _slots[i].item.title)        // 원래 _slots[i].item.title 로 나와야 되는데 
+                {
+                    return _slots[i].itemCount;
+                }
+            }
 
-        //        }
-        //    }
-        //}
+            return 0;
+        }
 
 
         // 고기 해체 하기 위한 코드

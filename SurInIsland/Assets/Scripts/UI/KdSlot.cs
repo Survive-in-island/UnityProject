@@ -48,7 +48,7 @@ namespace DarkTreeFPS
         public void AddItem(Item _item, int _count = 1)         // Inventory.cs에 있음  GiveItem ()
         {
             item = _item;
-            //itemCount = _count;
+            itemCount = _count;
             //itemImage.sprite = item.icon;
 
             //if (item.type != Item.item.weapon)
