@@ -158,7 +158,7 @@ public class CraftManual : MonoBehaviour
     {
         selectedSlotNumber = _slotNumber + (page - 1) * go_Slots.Length;
 
-        if (!CheckIngredient(selectedSlotNumber))
+        if (!CheckIngredient())
             return;
 
         //go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.up) * 4 - tf_Player.forward - (tf_Player.right * 2), Quaternion.identity);
@@ -169,11 +169,11 @@ public class CraftManual : MonoBehaviour
         go_BaseUI.SetActive(false);
     }
 
-    private bool CheckIngredient(int _selectedSlotNumber)
+    private bool CheckIngredient()
     {
-        for (int i = 0; i < craft_SelectedTab[_selectedSlotNumber].craftNeedItem.Length; i++)
+        for (int i = 0; i < craft_SelectedTab[selectedSlotNumber].craftNeedItem.Length; i++)
         {
-            if(theInventory.GetItemCount(craft_SelectedTab[_selectedSlotNumber].craftNeedItem[i]) < craft_SelectedTab[_selectedSlotNumber].craftNeedItemCount[i])
+            if(theInventory.GetItemCount(craft_SelectedTab[selectedSlotNumber].craftNeedItem[i]) < craft_SelectedTab[selectedSlotNumber].craftNeedItemCount[i])
                 return false;
         }
 
@@ -182,7 +182,10 @@ public class CraftManual : MonoBehaviour
 
     private void UseIngredient()
     {
-
+        for (int i = 0; i < craft_SelectedTab[selectedSlotNumber].craftNeedItem.Length; i++)
+        {
+            theInventory.SetItemCount(craft_SelectedTab[selectedSlotNumber].craftNeedItem[i], craft_SelectedTab[selectedSlotNumber].craftNeedItemCount[i]);
+        }
     }
 
     // Update is called once per frame

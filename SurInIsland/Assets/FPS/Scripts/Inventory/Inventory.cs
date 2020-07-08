@@ -206,6 +206,26 @@ namespace DarkTreeFPS
             return 0;
         }
 
+        public void SetItemCount(string _itemName, int _itemCount)
+        {
+            if(!ItemCountAdjust(slots, _itemName, _itemCount))
+            {
+                //ItemCountAdjust(quickSlots, _itemName, _itemCount)
+            }
+        }
+
+        private bool ItemCountAdjust(KdSlot[] _slots, string _itemName, int _itemCount)
+        {
+            for (int i = 0; i < _slots.Length; i++)
+            {
+                if (_itemName == _slots[i].item.title) { 
+                    _slots[i].SetSlotCount(-_itemCount);
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         // 고기 해체 하기 위한 코드
         //[SerializeField]
