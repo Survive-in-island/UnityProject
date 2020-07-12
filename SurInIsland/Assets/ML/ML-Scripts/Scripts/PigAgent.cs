@@ -17,9 +17,7 @@ public class PigAgent : Agent
 
     private int trufflesCollected = 0;
 
-    /// <summary>
     /// Initialize the agent
-    /// </summary>
     public override void InitializeAgent()
     {
         base.InitializeAgent();
@@ -29,13 +27,10 @@ public class PigAgent : Agent
         rayPerception = GetComponent<RayPerception>();
     }
 
-    /// <summary>
     /// Collect all observations that the agent will use to make decisions
-    /// </summary>
     public override void CollectObservations()
     {
-
-        // Add raycast perception observations for stumps and walls
+        // 레이캐스트로 오브젝트 판단 
         float rayDistance = 20f;
         float[] rayAngles = { 90f };
         string[] detectableObjects = { "stump", "wall" };
@@ -113,9 +108,7 @@ public class PigAgent : Agent
         }
     }
 
-    /// <summary>
     /// Reset the agent
-    /// </summary>
     public override void AgentReset()
     {
         // Reset velocity
@@ -125,9 +118,7 @@ public class PigAgent : Agent
         trufflesCollected = 0;
     }
 
-    /// <summary>
     /// Calculates the strength of smell in each nostril
-    /// </summary>
     /// <returns>A Vector2 where x is the left nostril and y is the right nostril</returns>
     private Vector2 GetNostrilStereo()
     {
@@ -152,10 +143,7 @@ public class PigAgent : Agent
         return new Vector2(leftNostril, rightNostril);
     }
 
-    /// <summary>
     /// React to a collision
-    /// </summary>
-    /// <param name="collision">The collision description</param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("truffle"))
@@ -169,9 +157,7 @@ public class PigAgent : Agent
         }
     }
 
-    /// <summary>
     /// Collect a truffle and increment relevant counters
-    /// </summary>
     private void CollectTruffle()
     {
         trufflesCollected++;
