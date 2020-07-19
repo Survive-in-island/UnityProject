@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PigBrain_Learning
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 1
+    vectorObservationSize: 8
     numStackedVectorObservations: 10
     vectorActionSize: 0300000003000000
     cameraResolutions: []

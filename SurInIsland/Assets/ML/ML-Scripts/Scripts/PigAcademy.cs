@@ -7,8 +7,9 @@ public class PigAcademy : Academy
 {
     private PigArea[] areas;
 
+    /// <summary>
     /// Reset the academy
-
+    /// </summary>
     public override void AcademyReset()
     {
         if (areas == null)

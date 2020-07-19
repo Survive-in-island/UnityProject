@@ -30,10 +30,11 @@ public class PigAgent : Agent
     /// Collect all observations that the agent will use to make decisions
     public override void CollectObservations()
     {
-        // 레이캐스트로 오브젝트 판단 
+
+        // Add raycast perception observations for stumps and walls
         float rayDistance = 20f;
-        float[] rayAngles = { 90f };
-        string[] detectableObjects = { "stump", "wall" };
+        float[] rayAngles = { 90f };                // 볼 각도
+        string[] detectableObjects = { "stump", "wall" };               // 레이캐스트를 이용하여 태그가 stump나 wall인 것을 감지
         AddVectorObs(rayPerception.Perceive(rayDistance, rayAngles, detectableObjects, 0f, 0f));
 
         // Sniff for truffles
@@ -45,12 +46,13 @@ public class PigAgent : Agent
         AddVectorObs(localVelocity.z);
     }
 
-    public override void AgentAction(float[] vectorAction, string textAction)
+    public override void AgentAction(float[] vectorAction, string textAction)       // 돼지의 움직임 코드
     {
-        // Determine the rotation action
+        // 회전 액션 결정
         float rotateAmount = 0;
-        if (vectorAction[1] == 1)
+        if (vectorAction[1] == 1)      
         {
+            Debug.Log("forward");
             rotateAmount = -rotateSpeed;
         }
         else if (vectorAction[1] == 2)
@@ -58,19 +60,18 @@ public class PigAgent : Agent
             rotateAmount = rotateSpeed;
         }
 
-        // Apply the rotation
         Vector3 rotateVector = transform.up * rotateAmount;
         agentRigidbody.MoveRotation(Quaternion.Euler(agentRigidbody.rotation.eulerAngles + rotateVector * rotateSpeed));
 
-        // Determine move action
+        // 움직임 액션 결정
         float moveAmount = 0;
-        if (vectorAction[0] == 1)
+        if (vectorAction[0] == 1)           // 앞으로  w의 트리거 
         {
             moveAmount = moveSpeed;
         }
         else if (vectorAction[0] == 2)
         {
-            moveAmount = moveSpeed * -.5f; // move at half-speed going backwards
+            moveAmount = moveSpeed * -.5f;  // 뒤로 가는것은 천천히
         }
 
         // Apply the movement
@@ -118,8 +119,6 @@ public class PigAgent : Agent
         trufflesCollected = 0;
     }
 
-    /// Calculates the strength of smell in each nostril
-    /// <returns>A Vector2 where x is the left nostril and y is the right nostril</returns>
     private Vector2 GetNostrilStereo()
     {
         List<GameObject> smellyObjects = agentArea.GetSmellyObjects();
@@ -143,7 +142,7 @@ public class PigAgent : Agent
         return new Vector2(leftNostril, rightNostril);
     }
 
-    /// React to a collision
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("truffle"))
@@ -157,7 +156,6 @@ public class PigAgent : Agent
         }
     }
 
-    /// Collect a truffle and increment relevant counters
     private void CollectTruffle()
     {
         trufflesCollected++;

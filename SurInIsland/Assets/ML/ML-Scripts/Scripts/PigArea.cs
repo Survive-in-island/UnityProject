@@ -28,25 +28,23 @@ public class PigArea : Area
     private List<GameObject> spawnedTruffles;
     private List<GameObject> spawnedStumps;
 
-    // A list of (position, radius) tuples of occupied spots in the area
+    // (position, radius) 
     private List<Tuple<Vector3, float>> occupiedPositions;
 
     private Renderer groundRenderer;
     private Material groundMaterial;
 
+    private int notGroundLayerMask;
+
     private void Start()
     {
-        // Get the ground renderer so we can change the material when a goal is scored
         groundRenderer = ground.GetComponent<Renderer>();
 
-        // Store the starting material
         groundMaterial = groundRenderer.material;
+
+        notGroundLayerMask = ~LayerMask.GetMask("ground");              ///
     }
 
-    /// <summary>
-    /// Resets the area
-    /// </summary>
-    /// <param name="agents"></param>
     public override void ResetArea()
     {
         occupiedPositions = new List<Tuple<Vector3, float>>();
@@ -57,7 +55,7 @@ public class PigArea : Area
 
     private void FixedUpdate()
     {
-        // Make sure the pig has not left the area
+        // 돼지가 벗어나지 않게
         Vector3 pigLocalPosition = pigAgent.transform.localPosition;
         if (Mathf.Abs(pigLocalPosition.x) > 13f || Mathf.Abs(pigLocalPosition.z) > 13f)
         {
@@ -74,9 +72,7 @@ public class PigArea : Area
         return spawnedTruffles;
     }
 
-    /// <summary>
-    /// Swap ground material, wait time seconds, then swap back to the regular material.
-    /// </summary>
+
     public IEnumerator SwapGroundMaterial(bool success)
     {
         if (success)
@@ -92,28 +88,24 @@ public class PigArea : Area
         groundRenderer.material = groundMaterial;
     }
 
-    public void UpdateScore(float score)
+    public void UpdateScore(float score)                // 학습에서 점수를 얻었는지 
     {
         scoreText.text = score.ToString("0.00");
     }
 
-    /// <summary>
-    /// Reset the agent
-    /// </summary>
+
     private void ResetAgent()
     {
-        // Reset location and rotation
+        // 위치와 회전값 리셋 
         RandomlyPlaceObject(pigAgent, spawnRange, 10);
     }
 
-    /// <summary>
-    /// Resets all truffles in the area
-    /// </summary>
-    private void ResetTruffles()
+
+    private void ResetTruffles()                // 랜덤한 위치에 먹이 생성
     {
         if (spawnedTruffles != null)
         {
-            // Destroy any truffles remaining from the previous run
+            // 이전 step에서 남은 truffles 파괴 
             foreach (GameObject spawnedMushroom in spawnedTruffles.ToArray())
             {
                 Destroy(spawnedMushroom);
@@ -124,21 +116,19 @@ public class PigArea : Area
 
         for (int i = 0; i < numTruffles; i++)
         {
-            // Create a new truffle instance and place it randomly
+            // 새로운 먹이 생성 
             GameObject truffleInstance = Instantiate(trufflePrefab, transform);
             RandomlyPlaceObject(truffleInstance, spawnRange, 50);
             spawnedTruffles.Add(truffleInstance);
         }
     }
 
-    /// <summary>
-    /// Resets all stumps in the area
-    /// </summary>
-    private void ResetStumps()
+
+    private void ResetStumps()      // 랜덤한 위치에 나무 생성
     {
         if (spawnedStumps != null)
         {
-            // Destroy any stumps remaining from the previous run
+            // 실행 전 나무 파괴 
             foreach (GameObject spawnedTree in spawnedStumps.ToArray())
             {
                 Destroy(spawnedTree);
@@ -149,19 +139,15 @@ public class PigArea : Area
 
         for (int i = 0; i < numStumps; i++)
         {
-            // Create a new stump instance and place it randomly
+            // 나무 랜덤하게 생성 
             GameObject stumpInstance = Instantiate(stumpPrefab, transform);
             RandomlyPlaceObject(stumpInstance, spawnRange, 50);
             spawnedStumps.Add(stumpInstance);
         }
     }
 
-    /// <summary>
-    /// Attempts to randomly place an object by checking a sphere around a potential location for collisions
-    /// </summary>
-    /// <param name="objectToPlace">The object to be randomly placed</param>
-    /// <param name="range">The range in x and z to choose random points within.</param>
-    /// <param name="maxAttempts">Number of times to attempt placement</param>
+
+
     private void RandomlyPlaceObject(GameObject objectToPlace, float range, float maxAttempts)
     {
         // Temporarily disable collision
@@ -200,11 +186,7 @@ public class PigArea : Area
         objectToPlace.GetComponent<Collider>().enabled = true;
     }
 
-    /// <summary>
-    /// Gets a local space radius that draws a circle on the X-Z plane around the boundary of the collider
-    /// </summary>
-    /// <param name="obj">The game object to test</param>
-    /// <returns>The local space radius around the collider</returns>
+
     private static float GetColliderRadius(GameObject obj)
     {
         Collider col = obj.GetComponent<Collider>();
@@ -223,12 +205,6 @@ public class PigArea : Area
         return Mathf.Max(boundsSize.x, boundsSize.z) / 2f;
     }
 
-    /// <summary>
-    /// Detects if a test position has a radius of clear space around it
-    /// </summary>
-    /// <param name="testPosition">The world position to test</param>
-    /// <param name="testRadius">The radius to test</param>
-    /// <returns><c>true</c> if the position is open</returns>
     private bool CheckIfPositionIsOpen(Vector3 testPosition, float testRadius)
     {
         foreach (Tuple<Vector3, float> occupied in occupiedPositions)
