@@ -1,2 +1,6 @@
-model_checkpoint_path: "model-1916.cptk"
-all_model_checkpoint_paths: "model-1916.cptk"
+model_checkpoint_path: "model-1102416.cptk"
+all_model_checkpoint_paths: "model-950000.cptk"
+all_model_checkpoint_paths: "model-1000000.cptk"
+all_model_checkpoint_paths: "model-1050000.cptk"
+all_model_checkpoint_paths: "model-1100000.cptk"
+all_model_checkpoint_paths: "model-1102416.cptk"
