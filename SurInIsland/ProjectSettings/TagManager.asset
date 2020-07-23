@@ -29,6 +29,7 @@ TagManager:
   - ETC
   - Terrain
   - Structure
+  - trupple
   layers:
   - Default
   - TransparentFX

@@ -149,7 +149,6 @@ public class CraftManual : MonoBehaviour
             {
                 text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
                 text_SlotNeedItem[i - startSlotNumber].text += " x " + craft_SelectedTab[i].craftNeedItem[x] + "\n";
-
             }
         }
     }
@@ -202,7 +201,7 @@ public class CraftManual : MonoBehaviour
         if (isPreviewActivated)
             PreviewPositionUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))       // if(Input.GetKeyDown("Fire1"))
             Build();
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -214,7 +213,7 @@ public class CraftManual : MonoBehaviour
         if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
         {
             UseIngredient();
-            Instantiate(go_Prefab, buildPosition.transform.position, go_Preview.transform.rotation);
+            Instantiate(go_Prefab, buildPosition.transform.position, go_Preview.transform.rotation); // 가운데 인자 hitInfo.point
             Destroy(go_Preview);
             isActivated = false;
             isPreviewActivated = false;
