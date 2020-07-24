@@ -100,6 +100,9 @@
     <Compile Include="Assets\FPS\Scripts\Weapon\WeaponSettingSO.cs" />
     <Compile Include="Assets\FPS\Standard Assets\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
     <Compile Include="Assets\FPS\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
+    <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonAcademy.cs" />
+    <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonAgent.cs" />
+    <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonArea.cs" />
     <Compile Include="Assets\ML\ML-Agents\Examples\3DBall\Scripts\Ball3DAcademy.cs" />
     <Compile Include="Assets\ML\ML-Agents\Examples\3DBall\Scripts\Ball3DAgent.cs" />
     <Compile Include="Assets\ML\ML-Agents\Examples\3DBall\Scripts\Ball3DDecision.cs" />
@@ -213,9 +216,9 @@
     <Compile Include="Assets\ML\ML-Agents\Scripts\SocketCommunicator.cs" />
     <Compile Include="Assets\ML\ML-Agents\Scripts\UnityAgentsException.cs" />
     <Compile Include="Assets\ML\ML-Agents\Scripts\Utilities.cs" />
-    <Compile Include="Assets\ML\ML-Scripts\Scripts\PigAcademy.cs" />
-    <Compile Include="Assets\ML\ML-Scripts\Scripts\PigAgent.cs" />
-    <Compile Include="Assets\ML\ML-Scripts\Scripts\PigArea.cs" />
+    <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigAcademy.cs" />
+    <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigAgent.cs" />
+    <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigArea.cs" />
     <Compile Include="Assets\Scripts\Animal.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\Burn.cs" />
