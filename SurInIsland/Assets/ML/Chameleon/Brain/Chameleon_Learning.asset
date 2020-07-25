@@ -25,5 +25,5 @@ MonoBehaviour:
     - green
     - blue
     vectorActionSpaceType: 0
-  model: {fileID: 0}
+  model: {fileID: 1674207678879492192, guid: 1d45d351334aa8d4d961d8397167f7e4, type: 3}
   inferenceDevice: 0
