@@ -22,7 +22,7 @@ public class ChameleonAgent : Agent
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        // Set actions to -1, 0, or 1 (decrease, hold, increase)
+        // 색을 조정, + 0 -
         float redAction = ((int)vectorAction[0] - 1) * chameleonArea.ChameleonAcademy.colorChangeMagnitude;
         float greenAction = ((int)vectorAction[1] - 1) * chameleonArea.ChameleonAcademy.colorChangeMagnitude;
         float blueAction = ((int)vectorAction[2] - 1) * chameleonArea.ChameleonAcademy.colorChangeMagnitude;
@@ -32,22 +32,20 @@ public class ChameleonAgent : Agent
                                         Mathf.Clamp01(chameleonMaterial.color.g + greenAction),
                                         Mathf.Clamp01(chameleonMaterial.color.b + blueAction));
 
-        // Check if color has been held and award appropriately
         if (colorHoldTime > 0f)
         {
             float rewardMultiplier = 0.7f;
             if (redAction + greenAction + blueAction == 0f)
             {
-                // Slight boost for holding the correct color steady
                 rewardMultiplier = 1f;
             }
 
-            // Correct color, positive reward
+            // positive 보상
             AddReward(rewardMultiplier / agentParameters.maxStep);
         }
         else
         {
-            // Wrong color, negative reward
+            // negativa 보상
             AddReward(-1f / agentParameters.maxStep);
         }
     }
@@ -56,10 +54,32 @@ public class ChameleonAgent : Agent
     {
         Debug.Assert(agentParameters.maxStep > 0, "Agent max step should be higher than 0.");
         chameleonMaterial = chameleonMeshObject.GetComponent<MeshRenderer>().material;
+        StartCoroutine("FixUp");
         SetRandomColor();
     }
 
-    private void FixedUpdate()
+    //private void FixedUpdate()
+    //{
+    //    // Determine the correct color threshold
+    //    float correctThreshold = 1 - chameleonArea.ChameleonAcademy.resetParameters["coloraccuracy"];
+
+    //    // Calculate the average color difference
+    //    Vector3 colorDifference = ColorDifference(chameleonMaterial.color, chameleonArea.PlatformColor);
+    //    float averageDifference = (colorDifference.x + colorDifference.y + colorDifference.z) / 3f;
+
+    //    if (averageDifference < correctThreshold)
+    //    {
+    //        // Color is close enough, add to the colorHoldTime
+    //        colorHoldTime += Time.fixedDeltaTime;
+    //    }
+    //    else
+    //    {
+    //        // Color not close enough, reset the colorHoldTime
+    //        colorHoldTime = 0;
+    //    }
+    //}
+
+    IEnumerator FixUp()
     {
         // Determine the correct color threshold
         float correctThreshold = 1 - chameleonArea.ChameleonAcademy.resetParameters["coloraccuracy"];
@@ -78,14 +98,11 @@ public class ChameleonAgent : Agent
             // Color not close enough, reset the colorHoldTime
             colorHoldTime = 0;
         }
+
+        yield return new WaitForSeconds(1f);
     }
 
-    /// <summary>
-    /// Calculate the difference between two colors' R, G, and B values
-    /// </summary>
-    /// <param name="a">The first color</param>
-    /// <param name="b">The second color</param>
-    /// <returns>A vector of positive float differences</returns>
+
     private Vector3 ColorDifference(Color a, Color b)
     {
         float redDifference = Mathf.Abs(a.r - b.r);
@@ -95,9 +112,6 @@ public class ChameleonAgent : Agent
         return new Vector3(redDifference, greenDifference, blueDifference);
     }
 
-    /// <summary>
-    /// Sets the agent to a random color
-    /// </summary>
     private void SetRandomColor()
     {
         Color randomColor = UnityEngine.Random.ColorHSV();
