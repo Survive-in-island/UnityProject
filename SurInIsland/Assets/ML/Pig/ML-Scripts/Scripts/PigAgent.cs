@@ -17,7 +17,6 @@ public class PigAgent : Agent
 
     private int trufflesCollected = 0;
 
-    /// Initialize the agent
     public override void InitializeAgent()
     {
         base.InitializeAgent();
@@ -27,7 +26,6 @@ public class PigAgent : Agent
         rayPerception = GetComponent<RayPerception>();
     }
 
-    /// Collect all observations that the agent will use to make decisions
     public override void CollectObservations()
     {
 
@@ -76,15 +74,15 @@ public class PigAgent : Agent
 
         // Apply the movement
         Vector3 moveVector = transform.forward * moveAmount;
-        agentRigidbody.AddForce(moveVector * moveSpeed, ForceMode.VelocityChange);
+        //agentRigidbody.AddForce(moveVector * moveSpeed, ForceMode.VelocityChange);
+        agentRigidbody.AddForce(moveVector * moveSpeed);
 
         // Determine state
         if (GetCumulativeReward() <= -5f)
         {
-            // Reward is too negative, give up
+            // reward가 너무 낮아서 포기
             Done();
 
-            // Indicate failure with the ground material
             StartCoroutine(agentArea.SwapGroundMaterial(success: false));
 
             // Reset
@@ -92,10 +90,9 @@ public class PigAgent : Agent
         }
         else if (trufflesCollected >= agentArea.GetSmellyObjects().Count)
         {
-            // All truffles collected, success!
+            // 성공
             Done();
 
-            // Indicate success with the ground material
             StartCoroutine(agentArea.SwapGroundMaterial(success: true));
 
             // Reset
@@ -103,7 +100,6 @@ public class PigAgent : Agent
         }
         else
         {
-            // Encourage movement with a tiny time penalty and pdate the score text display
             AddReward(-.001f);
             agentArea.UpdateScore(GetCumulativeReward());
         }
@@ -112,10 +108,8 @@ public class PigAgent : Agent
     /// Reset the agent
     public override void AgentReset()
     {
-        // Reset velocity
         agentRigidbody.velocity = Vector3.zero;
 
-        // Reset number of truffles collected
         trufflesCollected = 0;
     }
 
@@ -145,10 +139,11 @@ public class PigAgent : Agent
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("truffle"))
+        if (collision.gameObject.CompareTag("Item"))
         {
             CollectTruffle();
             Destroy(collision.gameObject);
+            Debug.Log(trufflesCollected);
         }
         else if (collision.gameObject.CompareTag("wall"))
         {

@@ -150,23 +150,19 @@ public class PigArea : Area
 
     private void RandomlyPlaceObject(GameObject objectToPlace, float range, float maxAttempts)
     {
-        // Temporarily disable collision
+        // 랜덤생성
         objectToPlace.GetComponent<Collider>().enabled = false;
 
-        // Calculate test radius 10% larger than the collider extents
         float testRadius = GetColliderRadius(objectToPlace) * 1.1f;
 
-        // Set a random rotation
         objectToPlace.transform.rotation = Quaternion.Euler(new Vector3(0f, UnityEngine.Random.Range(0f, 360f), 0f));
 
-        // Make several attempts at randomly placing the object
         int attempt = 1;
         while (attempt <= maxAttempts)
         {
             Vector3 randomLocalPosition = new Vector3(UnityEngine.Random.Range(-range, range), 0, UnityEngine.Random.Range(-range, range));
             randomLocalPosition.Scale(transform.localScale);
 
-            //if (!Physics.CheckSphere(transform.position + randomLocalPosition, testRadius, notGroundLayerMask))
             if (CheckIfPositionIsOpen(transform.position + randomLocalPosition, testRadius))
             {
                 objectToPlace.transform.localPosition = randomLocalPosition;
@@ -182,7 +178,6 @@ public class PigArea : Area
             attempt++;
         }
 
-        // Enable collision
         objectToPlace.GetComponent<Collider>().enabled = true;
     }
 
