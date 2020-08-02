@@ -45,30 +45,30 @@ public class ChameleonArea : Area
         // Initial setup
         platformMaterial = platform.GetComponent<MeshRenderer>().material;
         ChangePlatformColor();
-        StartCoroutine("FixUp");
+        //StartCoroutine("FixUp");
         chameleonAcademy = FindObjectOfType<ChameleonAcademy>();
     }
 
-    //private void FixedUpdate()
-    //{
-    //    // If the colorChangeFrequency is set, determine if it should be changed
-    //    if (chameleonAcademy.colorChangeFrequency > 0 &&
-    //        (Time.fixedTime - lastChange) > chameleonAcademy.colorChangeFrequency)
-    //    {
-    //        ChangePlatformColor();
-    //    }
-    //}
-
-    IEnumerator FixUp()
+    private void FixedUpdate()
     {
-        if (chameleonAcademy.colorChangeFrequency > 0 && 
+        // If the colorChangeFrequency is set, determine if it should be changed
+        if (chameleonAcademy.colorChangeFrequency > 0 &&
             (Time.fixedTime - lastChange) > chameleonAcademy.colorChangeFrequency)
         {
             ChangePlatformColor();
         }
-        yield return new WaitForSeconds(1f);
-
     }
+
+    //IEnumerator FixUp()
+    //{
+    //    if (chameleonAcademy.colorChangeFrequency > 0 && 
+    //        (Time.fixedTime - lastChange) > chameleonAcademy.colorChangeFrequency)
+    //    {
+    //        ChangePlatformColor();
+    //    }
+    //    yield return new WaitForSeconds(1f);
+
+    //}
     /// <summary>
     /// Changes the platform the chameleon is standing on to a random color
     /// </summary>

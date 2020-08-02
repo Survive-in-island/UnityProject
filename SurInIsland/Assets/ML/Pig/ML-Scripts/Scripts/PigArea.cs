@@ -42,7 +42,7 @@ public class PigArea : Area
 
         groundMaterial = groundRenderer.material;
 
-        notGroundLayerMask = ~LayerMask.GetMask("ground");              ///
+        notGroundLayerMask = ~LayerMask.GetMask("Terrain");              ///
     }
 
     public override void ResetArea()
@@ -51,7 +51,7 @@ public class PigArea : Area
         ResetAgent();
         ResetTruffles();
         ResetStumps();
-    }
+    } 
 
     private void FixedUpdate()
     {

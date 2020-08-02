@@ -30,6 +30,9 @@ TagManager:
   - Terrain
   - Structure
   - trupple
+  - stump
+  - truffle
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -57,7 +60,7 @@ TagManager:
   - Terrain
   - Building
   - Item
-  - 
+  - ground
   - 
   - 
   - 

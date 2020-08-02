@@ -29,16 +29,14 @@ public class PigAgent : Agent
     public override void CollectObservations()
     {
 
-        // Add raycast perception observations for stumps and walls
         float rayDistance = 20f;
         float[] rayAngles = { 90f };                // 볼 각도
         string[] detectableObjects = { "stump", "wall" };               // 레이캐스트를 이용하여 태그가 stump나 wall인 것을 감지
         AddVectorObs(rayPerception.Perceive(rayDistance, rayAngles, detectableObjects, 0f, 0f));
 
-        // Sniff for truffles
+        // 아이템 감지
         AddVectorObs(GetNostrilStereo());
 
-        // Add velocity observation
         Vector3 localVelocity = transform.InverseTransformDirection(agentRigidbody.velocity);
         AddVectorObs(localVelocity.x);
         AddVectorObs(localVelocity.z);
@@ -74,8 +72,8 @@ public class PigAgent : Agent
 
         // Apply the movement
         Vector3 moveVector = transform.forward * moveAmount;
-        //agentRigidbody.AddForce(moveVector * moveSpeed, ForceMode.VelocityChange);
-        agentRigidbody.AddForce(moveVector * moveSpeed);
+        agentRigidbody.AddForce(moveVector * moveSpeed, ForceMode.VelocityChange);
+        //agentRigidbody.AddForce(moveVector * moveSpeed);
 
         // Determine state
         if (GetCumulativeReward() <= -5f)
@@ -149,6 +147,7 @@ public class PigAgent : Agent
         {
             AddReward(-.01f);
         }
+
     }
 
     private void CollectTruffle()
