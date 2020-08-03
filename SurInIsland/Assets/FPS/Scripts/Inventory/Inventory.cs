@@ -37,6 +37,7 @@ namespace DarkTreeFPS
 
         // 아이템 인덱스 
         int itemIndex = 0;
+
         void Start()
         {
             slots = go_SlotsParent.GetComponentsInChildren<KdSlot>();
@@ -190,14 +191,14 @@ namespace DarkTreeFPS
 
             else
                 return 0;
-            //return temp != 0 ? temp : SearchSlotItem(quickSlots, _itemName)              // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
+            //return temp != 0 ? temp : SearchSlotItem(quickSlots, _itemName)       // 앞에 조건을 만족하면 temp를 리턴 그렇지 않으면 뒤에 리턴
         }
 
         private int SearchSlotItem(KdSlot[] _slots, string _itemName)
         {
             for (int i = 0; i < _slots.Length; i++)
             {
-                if (_itemName == _slots[i].item.title)        // 원래 _slots[i].item.title 로 나와야 되는데 
+                if (_itemName == _slots[i].item.title)        //  아이템의 이름과 건축 조건 이름 맞춰주기 
                 {
                     return _slots[i].itemCount;
                 }
@@ -208,7 +209,7 @@ namespace DarkTreeFPS
 
         public void SetItemCount(string _itemName, int _itemCount)
         {
-            if(!ItemCountAdjust(slots, _itemName, _itemCount))
+            //if(!ItemCountAdjust(slots, _itemName, _itemCount))
             {
                 //ItemCountAdjust(quickSlots, _itemName, _itemCount)
             }
@@ -218,11 +219,18 @@ namespace DarkTreeFPS
         {
             for (int i = 0; i < _slots.Length; i++)
             {
-                if (_itemName == _slots[i].item.title) { 
+                if (_itemName == _slots[i].item.title)
+                {
                     _slots[i].SetSlotCount(-_itemCount);
+                    //_slots[i].item = null;
+
+                    characterItems.Remove(_slots[i].item);
+                    inventoryUI.RemoveItem(_slots[i].item);
+
                     return true;
                 }
             }
+
             return false;
         }
 

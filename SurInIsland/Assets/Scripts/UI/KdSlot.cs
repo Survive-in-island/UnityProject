@@ -17,11 +17,11 @@ namespace DarkTreeFPS
         [SerializeField] private int quickSlotNumber; // 퀵슬롯 번호.
 
 
-        // 필요한 컴포넌트.
-        [SerializeField]
-        private Text text_Count;
-        [SerializeField]
-        private GameObject go_CountImage;
+        //// 필요한 컴포넌트.
+        //[SerializeField]
+        //private Text text_Count;                // 아이템UI 띄우기 
+        //[SerializeField]
+        //private GameObject go_CountImage;
 
         //private ItemEffectDatabase theItemEffectDatabase;
         [SerializeField]
@@ -74,7 +74,7 @@ namespace DarkTreeFPS
         public void SetSlotCount(int _count)
         {
             itemCount += _count;
-            text_Count.text = itemCount.ToString();
+            //text_Count.text = itemCount.ToString();                   /////////////
 
             if (itemCount <= 0)
                 ClearSlot();
@@ -86,11 +86,11 @@ namespace DarkTreeFPS
         {
             item = null;
             itemCount = 0;
-            itemImage.sprite = null;
+            //itemImage.sprite = null;                                              //////////////////
             SetColor(0);
 
-            text_Count.text = "0";
-            go_CountImage.SetActive(false);
+            //text_Count.text = "0";                                                        //////////
+            //go_CountImage.SetActive(false);                                                   ///////
         }
 
 

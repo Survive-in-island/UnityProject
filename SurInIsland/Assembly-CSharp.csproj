@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Animals\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
     <Compile Include="Assets\DogKnight\Dog.cs" />
+    <Compile Include="Assets\DogKnight\MLMoveEx.cs" />
     <Compile Include="Assets\FPS\Scripts\GameManagerDemo.cs" />
     <Compile Include="Assets\FPS\Scripts\Inventory\AmmoCheck.cs" />
     <Compile Include="Assets\FPS\Scripts\Inventory\ConsumeEvents.cs" />
@@ -104,7 +105,6 @@
     <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonAcademy.cs" />
     <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonAgent.cs" />
     <Compile Include="Assets\ML\Chameleon\Chameleon\chameleon_code\Scripts\ChameleonArea.cs" />
-    <Compile Include="Assets\ML\Dog\LearmPlayer.cs" />
     <Compile Include="Assets\ML\Dog\TigerAcademy.cs" />
     <Compile Include="Assets\ML\Dog\TigerAgent.cs" />
     <Compile Include="Assets\ML\Dog\TigerArea.cs" />

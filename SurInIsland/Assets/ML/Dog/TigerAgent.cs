@@ -156,9 +156,7 @@ public class TigerAgent : Agent
         if (collision.gameObject.CompareTag("Player") || (collision.gameObject.CompareTag("Pig") || (collision.gameObject.CompareTag("Rabbit"))))             // truffle에서 item으로 수정
         {
             // attack
-            anim.SetBool("Fight", isAttack);
-
-            
+            anim.SetBool("Attack", isAttack);
 
             CollectTruffle();
 

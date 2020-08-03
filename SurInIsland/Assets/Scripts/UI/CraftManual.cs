@@ -10,6 +10,8 @@ public class Craft
     public string craftName;            // 이름
     public Sprite craftImage;           // 이미지
     public string craftDesc;            // 설명
+
+
     public string[] craftNeedItem;      // 필요한 아이템
     public int[] craftNeedItemCount;    // 필요한 아이템 개수 
     public GameObject go_Prefab;        // 실제 설치될 프리팹
@@ -148,7 +150,7 @@ public class CraftManual : MonoBehaviour
             for (int x = 0; x < craft_SelectedTab[i].craftNeedItem.Length; x++)
             {
                 text_SlotNeedItem[i - startSlotNumber].text += craft_SelectedTab[i].craftNeedItem[x];
-                text_SlotNeedItem[i - startSlotNumber].text += " x " + craft_SelectedTab[i].craftNeedItem[x] + "\n";
+                text_SlotNeedItem[i - startSlotNumber].text += " x " + craft_SelectedTab[i].craftNeedItemCount[x] + "\n";
             }
         }
     }
@@ -235,7 +237,6 @@ public class CraftManual : MonoBehaviour
         go_BaseUI.SetActive(false);
 
         controller.lockCursor = true;
-
     }
 
     private void PreviewPositionUpdate()
