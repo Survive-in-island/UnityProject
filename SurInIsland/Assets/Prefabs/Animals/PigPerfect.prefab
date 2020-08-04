@@ -346,12 +346,11 @@ GameObject:
   - component: {fileID: 7767431017210760085}
   - component: {fileID: 7767431017210760086}
   - component: {fileID: 7767431017210760087}
-  - component: {fileID: 7767431017210760080}
   - component: {fileID: 7767431017210760081}
   - component: {fileID: 7767431017210760082}
   m_Layer: 0
   m_Name: PigPerfect
-  m_TagString: WeakAnimal
+  m_TagString: Pig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,6 +432,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e4269e79cc4ebe34daf6d6830e313ce6, type: 3}
   sound_hurt: {fileID: 8300000, guid: acb5d708d04d92045a2ccf7665e2ba82, type: 3}
   sound_dead: {fileID: 8300000, guid: 10614c1939309094081af83874f176e8, type: 3}
+  item_Prefab: {fileID: 0}
 --- !u!114 &7767431017210760087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,23 +450,6 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 2097152
---- !u!114 &7767431017210760080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767431017210760083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4f214568009304e8006395391d35fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  animal: {fileID: 7767431017210760083}
-  animalCreatTime: 5
-  maxAnimal: 5
-  isGameOver: 0
 --- !u!82 &7767431017210760081
 AudioSource:
   m_ObjectHideFlags: 0

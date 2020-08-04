@@ -33,6 +33,7 @@ TagManager:
   - stump
   - truffle
   - wall
+  - MLAnimal
   layers:
   - Default
   - TransparentFX

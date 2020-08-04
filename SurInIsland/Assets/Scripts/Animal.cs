@@ -150,10 +150,15 @@ public class Animal : MonoBehaviour
 
         this.gameObject.tag = "Untagged";
 
+        ///
+        // 수정해야될수도
+        ///
+        Destroy(this.gameObject, 2);
+
         ////////////////////////////
         Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
-        ////////////////
 
+        
         anim.SetTrigger("Dead");
     }
 

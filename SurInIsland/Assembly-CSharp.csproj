@@ -221,6 +221,7 @@
     <Compile Include="Assets\ML\ML-Agents\Scripts\SocketCommunicator.cs" />
     <Compile Include="Assets\ML\ML-Agents\Scripts\UnityAgentsException.cs" />
     <Compile Include="Assets\ML\ML-Agents\Scripts\Utilities.cs" />
+    <Compile Include="Assets\ML\MLAnimal.cs" />
     <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigAcademy.cs" />
     <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigAgent.cs" />
     <Compile Include="Assets\ML\Pig\ML-Scripts\Scripts\PigArea.cs" />
