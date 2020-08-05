@@ -75,6 +75,8 @@ public class CraftManual : MonoBehaviour
     {
         theInventory = FindObjectOfType<Inventory>();
 
+        controller = FindObjectOfType<FPSController>();
+
         tabNumber = 0;
         page = 1;
         TabSlotSetting(craft_fire);
@@ -192,7 +194,6 @@ public class CraftManual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controller = FindObjectOfType<FPSController>();
 
         if (Input.GetKeyDown(KeyCode.P) && !isPreviewActivated)            // 바꿔야 될 수도
         {

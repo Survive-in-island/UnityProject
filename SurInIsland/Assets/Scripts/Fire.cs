@@ -81,8 +81,9 @@ public class Fire : MonoBehaviour
 
             if (currentTime >= time)
             {
-                Instantiate(go_CookedItemPrefab, transform.position, Quaternion.Euler(transform.eulerAngles));
-                Destroy(gameObject);
+                Instantiate(go_CookedItemPrefab, other.transform.position, Quaternion.Euler(transform.eulerAngles));
+
+                Destroy(other.gameObject);
             }
         }
     }

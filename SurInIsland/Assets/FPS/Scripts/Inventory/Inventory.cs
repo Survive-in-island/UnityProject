@@ -209,10 +209,12 @@ namespace DarkTreeFPS
 
         public void SetItemCount(string _itemName, int _itemCount)
         {
-            //if(!ItemCountAdjust(slots, _itemName, _itemCount))
-            {
-                //ItemCountAdjust(quickSlots, _itemName, _itemCount)
-            }
+            //if (!ItemCountAdjust(slots, _itemName, _itemCount))
+            //{
+            //    //ItemCountAdjust(quickSlots, _itemName, _itemCount)
+            //}
+
+            //ItemCountAdjust(slots, _itemName, _itemCount);
         }
 
         private bool ItemCountAdjust(KdSlot[] _slots, string _itemName, int _itemCount)

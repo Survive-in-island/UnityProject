@@ -20,6 +20,8 @@ public class MLAnimal : MonoBehaviour
 
     [SerializeField]
     private GameObject go_meat_item_prefab; // 죽으면 나올 아이템
+    [SerializeField]
+    private GameObject pigParent;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class MLAnimal : MonoBehaviour
 
             if (hp <= 0)
             {
+                isDead = true;
                 Dead();
                 return;
             }
@@ -56,9 +59,9 @@ public class MLAnimal : MonoBehaviour
 
         ///
         // 수정해야될수도
-        //Destroy(this.gameObject, 2);
+        Destroy(pigParent, 2);
         
-        Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
+        Instantiate(go_meat_item_prefab, pigParent.transform.position, Quaternion.identity);
     }
 
     protected void PlaySE(AudioClip _clip)

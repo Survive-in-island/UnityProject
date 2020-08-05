@@ -738,6 +738,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3883224752482819796}
     m_Modifications:
+    - target: {fileID: 2073534612464283856, guid: 29b2d41d62949444e8e0d0035b7b6cec,
+        type: 3}
+      propertyPath: pigParent
+      value: 
+      objectReference: {fileID: 1255444260670682300}
+    - target: {fileID: 2073534612464283856, guid: 29b2d41d62949444e8e0d0035b7b6cec,
+        type: 3}
+      propertyPath: go_meat_item_prefab
+      value: 
+      objectReference: {fileID: 617030494428098982, guid: f7a06890c0e6b0b46aa35b0d778221f3,
+        type: 3}
     - target: {fileID: 5998672704710383656, guid: 29b2d41d62949444e8e0d0035b7b6cec,
         type: 3}
       propertyPath: m_LocalPosition.x
