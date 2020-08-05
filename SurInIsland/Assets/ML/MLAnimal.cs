@@ -61,7 +61,7 @@ public class MLAnimal : MonoBehaviour
         // 수정해야될수도
         Destroy(pigParent, 2);
         
-        Instantiate(go_meat_item_prefab, pigParent.transform.position, Quaternion.identity);
+        Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
     }
 
     protected void PlaySE(AudioClip _clip)

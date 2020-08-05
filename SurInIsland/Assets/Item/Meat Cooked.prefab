@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Event: 1
-  pointsToAdd: 350
+  pointsToAdd: 600
 --- !u!114 &6557594857039481448
 MonoBehaviour:
   m_ObjectHideFlags: 0
