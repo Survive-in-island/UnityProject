@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 2278754507874806922}
   m_Layer: 24
   m_Name: RoofCliff
-  m_TagString: Untagged
+  m_TagString: building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

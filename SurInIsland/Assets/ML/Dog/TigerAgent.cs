@@ -17,9 +17,11 @@ public class TigerAgent : Agent
 
     private int trufflesCollected = 0;
 
+    [SerializeField]
     private Animator anim;
 
-    private bool isAttack;
+    private bool isAttack = false;
+    private bool isWalk = false;
     /// Initialize the agent
     public override void InitializeAgent()
     {
@@ -58,11 +60,15 @@ public class TigerAgent : Agent
         float rotateAmount = 0;
         if (vectorAction[1] == 1)
         {
+            anim.SetBool("Walking", isWalk);
+
             Debug.Log("forward");
             rotateAmount = -rotateSpeed;
         }
         else if (vectorAction[1] == 2)
         {
+            anim.SetBool("Walking", isWalk);
+
             rotateAmount = rotateSpeed;
         }
 
@@ -73,10 +79,15 @@ public class TigerAgent : Agent
         float moveAmount = 0;
         if (vectorAction[0] == 1)           // 앞으로  w의 트리거 
         {
+            isWalk = true;
+            anim.SetBool("Walking", isWalk);
+
             moveAmount = moveSpeed;
         }
         else if (vectorAction[0] == 2)
         {
+            isWalk = true;
+            anim.SetBool("Walking", isWalk);
             moveAmount = moveSpeed * -.5f;  // 뒤로 가는것은 천천히
         }
 
@@ -156,17 +167,23 @@ public class TigerAgent : Agent
         if (collision.gameObject.CompareTag("Player") || (collision.gameObject.CompareTag("Pig") || (collision.gameObject.CompareTag("Rabbit"))))             // truffle에서 item으로 수정
         {
             // attack
-            anim.SetBool("Attack", isAttack);
 
             CollectTruffle();
-
-            Destroy(collision.gameObject);
+            isAttack = true;
+            //Destroy(collision.gameObject);
+            anim.SetBool("Attack", isAttack);
+            //anim.SetTrigger("Hit");
         }
-        else if (collision.gameObject.CompareTag("stump"))
+        else if (collision.gameObject.CompareTag("stump") || collision.gameObject.CompareTag("building"))
         {
             AddReward(-.01f);
         }
 
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isAttack = false;
     }
 
     private void CollectTruffle()               

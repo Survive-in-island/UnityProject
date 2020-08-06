@@ -41,7 +41,7 @@ public class TigerArea : Area
 
         groundMaterial = groundRenderer.material;
 
-        notGroundLayerMask = ~LayerMask.GetMask("ground");              ///
+        notGroundLayerMask = ~LayerMask.GetMask("Terrain");              ///
     }
 
     public override void ResetArea()

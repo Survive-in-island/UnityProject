@@ -19,14 +19,24 @@ public class StatusController : MonoBehaviour
     // 스테미너 증가량
     [SerializeField]
     private int spIncreaseSpeed;
+    // HP증가량
+    [SerializeField]
+    private int hpIncreaseSpeed;
+
 
     // 스테미너 회복 딜레이
     [SerializeField]
     private int spRechargeTime;
     private int currentSpRechargeTime;
 
+    // HP 회복 딜레이
+    [SerializeField]
+    private int hpRechargeTime;
+    private int currentHpRechargeTime;
+
     // 스테미너 감소 여부
     private bool spUsed;
+    private bool hpUsed;
 
     // 방어력
     [SerializeField]
@@ -48,10 +58,16 @@ public class StatusController : MonoBehaviour
     private int thirsty;
     private int currentThirsty;
 
+
     // 목마름이 줄어드는 속도
     [SerializeField]
     private int thirstyDecreaseTime;
     private int currentThirstyDecreaseTime;
+
+    // 만족감이 줄어드는 속도
+    [SerializeField]
+    private int satisfyDecreaseTime;
+    private int currentSatisfyDecreaseTime;
 
     [SerializeField]
     private int satisfy;
@@ -79,8 +95,13 @@ public class StatusController : MonoBehaviour
     {
         Hungry();
         Thirsty();
+        Satisfy();
+
         SPRechargeTime();
         SPRecover();
+        HPRechargeTime();
+        HPRecover();
+
         GaugeUpdate();
     }
 
@@ -93,7 +114,25 @@ public class StatusController : MonoBehaviour
             else
                 spUsed = false;
         }
+    }
 
+    private void HPRechargeTime()
+    {
+        if (hpUsed)
+        {
+            if (currentHpRechargeTime < hpRechargeTime)
+                currentHpRechargeTime++;
+            else
+                spUsed = false;
+        }
+    }
+
+    private void HPRecover()
+    {
+        if (hungry > 70)
+        {
+            currentHp += hpIncreaseSpeed;
+        }
     }
 
     private void SPRecover()
@@ -136,6 +175,21 @@ public class StatusController : MonoBehaviour
             Debug.Log("목마름 수치가 0이 되었습니다.");
     }
 
+    private void Satisfy()
+    {
+        if (currentSatisfy > 0)
+        {
+            if (currentSatisfyDecreaseTime <= satisfyDecreaseTime)
+                currentSatisfyDecreaseTime++;
+            else
+            {
+                currentSatisfy--;
+                currentSatisfyDecreaseTime = 0;
+            }
+        }
+        else
+            Debug.Log("만족감 수치가 0이 되었습니다.");
+    }
     private void GaugeUpdate()
     {
         images_Gauge[HP].fillAmount = (float)currentHp / hp;
@@ -150,8 +204,8 @@ public class StatusController : MonoBehaviour
     {
         if (currentHp + _count < hp)
         {
-            //currentHp += _count;
-            //currentHp = 
+            currentHp += _count;
+            currentHp += _count;
         }
 
         else
@@ -218,6 +272,23 @@ public class StatusController : MonoBehaviour
             currentThirsty = -0;
         else
             currentThirsty -= _count;
+    }
+
+
+    public void IncreaseSatisfy(int _count)
+    {
+        if (currentSatisfy + _count < satisfy)
+            currentSatisfy += _count;
+        else
+            currentSatisfy = satisfy;
+    }
+
+    public void DecreaseSatisfy(int _count)
+    {
+        if (currentSatisfy - _count < 0)
+            currentSatisfy = -0;
+        else
+            currentSatisfy -= _count;
     }
 
     public void DecreaseStamina(int _coont)

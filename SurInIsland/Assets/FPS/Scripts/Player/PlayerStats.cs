@@ -182,6 +182,7 @@ namespace DarkTreeFPS
         public void AddSatiety(int points)
         {
             playerStat.IncreaseHungry(points);
+            playerStat.IncreaseSatisfy(points / 2);
             satiety += points;
         }
 
@@ -194,6 +195,7 @@ namespace DarkTreeFPS
         {
             ///////////////////////////////////
             playerStat.IncreaseThirsty(points);
+            playerStat.IncreaseSatisfy(points / 2);
             /////////////////////////////////////
             hydratation += points;
         }
@@ -201,6 +203,7 @@ namespace DarkTreeFPS
         public void AddHealth(int hp)
         {
             playerStat.IncreaseHP(hp);
+            playerStat.IncreaseSatisfy(hp/2);
             health += hp;
         }
 
