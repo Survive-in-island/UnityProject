@@ -54,32 +54,11 @@ public class ChameleonAgent : Agent
     {
         Debug.Assert(agentParameters.maxStep > 0, "Agent max step should be higher than 0.");
         chameleonMaterial = chameleonMeshObject.GetComponent<MeshRenderer>().material;
-        //StartCoroutine("FixUp");
+        StartCoroutine("FixUp");
         SetRandomColor();
     }
 
-    private void FixedUpdate()
-    {
-        // Determine the correct color threshold
-        float correctThreshold = 1 - chameleonArea.ChameleonAcademy.resetParameters["coloraccuracy"];
-
-        // Calculate the average color difference
-        Vector3 colorDifference = ColorDifference(chameleonMaterial.color, chameleonArea.PlatformColor);
-        float averageDifference = (colorDifference.x + colorDifference.y + colorDifference.z) / 3f;
-
-        if (averageDifference < correctThreshold)
-        {
-            // Color is close enough, add to the colorHoldTime
-            colorHoldTime += Time.fixedDeltaTime;
-        }
-        else
-        {
-            // Color not close enough, reset the colorHoldTime
-            colorHoldTime = 0;
-        }
-    }
-
-    //IEnumerator FixUp()
+    //private void FixedUpdate()
     //{
     //    // Determine the correct color threshold
     //    float correctThreshold = 1 - chameleonArea.ChameleonAcademy.resetParameters["coloraccuracy"];
@@ -98,9 +77,30 @@ public class ChameleonAgent : Agent
     //        // Color not close enough, reset the colorHoldTime
     //        colorHoldTime = 0;
     //    }
-
-    //    yield return new WaitForSeconds(1f);
     //}
+
+    IEnumerator FixUp()
+    {
+        // Determine the correct color threshold
+        float correctThreshold = 1 - chameleonArea.ChameleonAcademy.resetParameters["coloraccuracy"];
+
+        // Calculate the average color difference
+        Vector3 colorDifference = ColorDifference(chameleonMaterial.color, chameleonArea.PlatformColor);
+        float averageDifference = (colorDifference.x + colorDifference.y + colorDifference.z) / 3f;
+
+        if (averageDifference < correctThreshold)
+        {
+            // Color is close enough, add to the colorHoldTime
+            colorHoldTime += Time.fixedDeltaTime;
+        }
+        else
+        {
+            // Color not close enough, reset the colorHoldTime
+            colorHoldTime = 0;
+        }
+
+        yield return new WaitForSeconds(10f);
+    }
 
 
     private Vector3 ColorDifference(Color a, Color b)

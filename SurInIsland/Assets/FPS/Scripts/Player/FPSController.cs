@@ -5,7 +5,7 @@ namespace DarkTreeFPS
     public class FPSController : MonoBehaviour
     {
         [Header("Movement Settings")]
-        public float moveSpeed = 1f;
+        public float moveSpeed = 3f;                    // 1f
         public float crouchSpeed = 0.4f;
         public float runSpeedMultiplier = 2f;
         public float jumpForce = 4f;
