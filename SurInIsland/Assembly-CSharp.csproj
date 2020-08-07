@@ -232,6 +232,7 @@
     <Compile Include="Assets\Scripts\Fire.cs" />
     <Compile Include="Assets\Scripts\FoodOnFire.cs" />
     <Compile Include="Assets\Scripts\Grass.cs" />
+    <Compile Include="Assets\Scripts\GrassSpawnManager.cs" />
     <Compile Include="Assets\Scripts\ItemPickUp.cs" />
     <Compile Include="Assets\Scripts\ItemSpawnManager.cs" />
     <Compile Include="Assets\Scripts\MyGizmos.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Assets\Scripts\StrongAnimal.cs" />
     <Compile Include="Assets\Scripts\Tiger.cs" />
     <Compile Include="Assets\Scripts\TreeComponent.cs" />
+    <Compile Include="Assets\Scripts\TreeSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Twig.cs" />
     <Compile Include="Assets\Scripts\UI\ComputerKit.cs" />
     <Compile Include="Assets\Scripts\UI\CraftManual.cs" />

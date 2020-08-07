@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 2
-  destroyTime: 5
+  destroyTime: 1
   force: 1
   go_hit_effect_prefab: {fileID: 4083232084845074354, guid: 63f7c6a2fad4497469edbf5ba595e980,
     type: 3}

@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 4013502260371883698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 291.23, y: 103.05, z: 255.49}
-  m_LocalScale: {x: 0.35067946, y: 0.35067946, z: 0.35067946}
+  m_LocalScale: {x: 0.67152345, y: 0.67152345, z: 0.67152345}
   m_Children:
   - {fileID: 4013502260372183696}
   - {fileID: 4013502260372183702}
@@ -682,7 +682,7 @@ MonoBehaviour:
   childRigid: {fileID: 4013502260375086546}
   go_hit_effect_prefab: {fileID: 2562248399085260725, guid: d486ff97b9751e445ba9d2ee3ea2e7ab,
     type: 3}
-  debrisDestroyTime: 5
+  debrisDestroyTime: 4
   destroyTime: 8
   audioSource: {fileID: 4013502260643673358}
   tree_chop_sound: {fileID: 8300000, guid: 0c87e41212c9ca44fb8bc58a648da6e5, type: 3}
@@ -1057,8 +1057,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.6576307
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.8084397
+  m_Center: {x: 0, y: 0.849191, z: 0}
 --- !u!1 &4013502260371883710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,8 +1146,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.2324345
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.2669766
+  m_Center: {x: 0, y: 0.9654575, z: 0}
 --- !u!1 &4013502260371883730
 GameObject:
   m_ObjectHideFlags: 0
