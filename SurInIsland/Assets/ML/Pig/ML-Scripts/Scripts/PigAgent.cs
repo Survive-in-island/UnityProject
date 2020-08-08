@@ -147,6 +147,8 @@ public class PigAgent : Agent
         {
             AddReward(-.01f);
         }
+        else if (collision.gameObject.CompareTag("Water"))
+            agentArea.ResetArea();
 
     }
 

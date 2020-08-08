@@ -413,8 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Pig
   hp: 5
-  walkSpeed: 3
-  runSpeed: 5
+  walkSpeed: 2
+  runSpeed: 3
   turningSpeed: 0
   go_meat_item_prefab: {fileID: 617030494428098982, guid: f7a06890c0e6b0b46aa35b0d778221f3,
     type: 3}

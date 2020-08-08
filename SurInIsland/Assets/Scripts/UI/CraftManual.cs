@@ -71,6 +71,8 @@ public class CraftManual : MonoBehaviour
 
     FPSController controller;
 
+
+
     void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
@@ -271,11 +273,14 @@ public class CraftManual : MonoBehaviour
     {
         isActivated = true;
         go_BaseUI.SetActive(true);
+        controller.lockCursor = false;
+
     }
 
     private void CloseWindow()
     {
         isActivated = false;
         go_BaseUI.SetActive(false);
+        controller.lockCursor = true;
     }
 }

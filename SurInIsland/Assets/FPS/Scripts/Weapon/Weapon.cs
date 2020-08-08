@@ -451,6 +451,10 @@ namespace DarkTreeFPS
                 {
                     hit.transform.GetComponent<WeakAnimal>().Damage(1, transform.position);
                 }
+                if (hit.collider.tag == "stump")          
+                {
+                    hit.transform.GetComponent<MLStump>().Damage(1);
+                }
                 if (hit.collider.tag == "Rabbit")
                 {
                     hit.transform.GetComponent<Rabbit>().Damage(1, transform.position);
@@ -529,7 +533,10 @@ namespace DarkTreeFPS
             {
                 hit.transform.GetComponent<Dog>().Damage(1);
             }
-
+            if (hit.collider.tag == "stump")
+            {
+                hit.transform.GetComponent<MLStump>().Damage(1);
+            }
             if (hit.collider.tag == "WeakAnimal")          // 나중에 상속 받아서 Animal로 바꿀것
             {
                 hit.transform.GetComponent<WeakAnimal>().Damage(1, transform.position);
