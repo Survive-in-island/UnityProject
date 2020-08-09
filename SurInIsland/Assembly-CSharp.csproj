@@ -235,6 +235,8 @@
     <Compile Include="Assets\Scripts\GrassSpawnManager.cs" />
     <Compile Include="Assets\Scripts\ItemPickUp.cs" />
     <Compile Include="Assets\Scripts\ItemSpawnManager.cs" />
+    <Compile Include="Assets\Scripts\MLAnimalSpawn.cs" />
+    <Compile Include="Assets\Scripts\MLDogSpawn.cs" />
     <Compile Include="Assets\Scripts\MLStump.cs" />
     <Compile Include="Assets\Scripts\MyGizmos.cs" />
     <Compile Include="Assets\Scripts\Pig.cs" />

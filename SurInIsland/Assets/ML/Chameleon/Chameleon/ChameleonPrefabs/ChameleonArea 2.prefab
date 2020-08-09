@@ -118,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: chameleon_base
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d9a3455c0abd5534aac50ae913a3598a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a3455c0abd5534aac50ae913a3598a, type: 3}
 --- !u!1 &7583633561516646504 stripped

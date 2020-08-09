@@ -53,6 +53,23 @@ MonoBehaviour:
   rotateSpeed: 2
   nostrilWidth: 0.5
   anim: {fileID: 0}
+--- !u!114 &8889617169684883547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180690397468739908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac98537e784d4e34d822314819a41ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 5
+  go_meat_item_prefab: {fileID: 617030494428098982, guid: f7a06890c0e6b0b46aa35b0d778221f3,
+    type: 3}
+  dogParent: {fileID: 1278582742748630799}
+  playerStat: {fileID: 0}
 --- !u!114 &9141399081261485233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &868952141269895139
 Transform:
   m_ObjectHideFlags: 0
@@ -209,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tigerAgent: {fileID: 180690397468739908}
-  ground: {fileID: 1164537983876746325}
+  ground: {fileID: 8753707483610665941, guid: 4ee71c05a0202e4439b90e8955182b4d, type: 3}
   successMaterial: {fileID: 2100000, guid: 9e9fd9e8513b59f4f97ecf54ef7c6cdf, type: 2}
   failureMaterial: {fileID: 2100000, guid: cbd43f5077c47e74781abfd0160be188, type: 2}
   scoreText: {fileID: 5195981862381942441}
@@ -238,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6162981692145233494
 Transform:
   m_ObjectHideFlags: 0
@@ -331,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2841691414652447716
 Transform:
   m_ObjectHideFlags: 0
@@ -424,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4592392804194137523
 Transform:
   m_ObjectHideFlags: 0
@@ -518,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6620824620109728217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -721,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5619302841379541980
 Transform:
   m_ObjectHideFlags: 0
@@ -803,6 +820,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3833046566291121511}
     m_Modifications:
+    - target: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3be8ba5f48c46c1469d2033db7b38d13, type: 2}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -136,7 +136,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -291,3 +291,4 @@ MonoBehaviour:
   sound_pig_dead: {fileID: 8300000, guid: 10614c1939309094081af83874f176e8, type: 3}
   go_meat_item_prefab: {fileID: 1348873772793800659, guid: 0f88d812fab1f9f4d915cb741c751446,
     type: 3}
+  pigParent: {fileID: 0}

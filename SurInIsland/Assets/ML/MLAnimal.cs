@@ -57,9 +57,9 @@ public class MLAnimal : MonoBehaviour
 
         PlaySE(sound_pig_dead);
 
-        Instantiate(go_meat_item_prefab, transform.position, Quaternion.identity);
-
         Destroy(pigParent, 2);
+
+        Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
         
     }
 

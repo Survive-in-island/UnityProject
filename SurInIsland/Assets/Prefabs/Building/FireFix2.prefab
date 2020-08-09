@@ -165,7 +165,8 @@ PrefabInstance:
         type: 3}
       propertyPath: LightsModule.light
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5609159466478574495, guid: e1295ea4e0372464aba9ddd61d88613e,
+        type: 3}
     - target: {fileID: 198904103928760004, guid: 3d7635e5a7fe32544a81d7525f697271,
         type: 3}
       propertyPath: LightsModule.light
