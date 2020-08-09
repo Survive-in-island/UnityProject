@@ -451,11 +451,15 @@ MonoBehaviour:
   animalName: Rabbit
   hp: 2
   runSpeed: 2
+  walkSpeed: 1
+  turningSpeed: 1
   runTime: 5
   waitTime: 4
   anim: {fileID: 5532264945996693053}
   rigid: {fileID: 5590491806285423946}
   boxCol: {fileID: 5590491806285423947}
+  go_meat_item_prefab: {fileID: 617030494428098982, guid: f7a06890c0e6b0b46aa35b0d778221f3,
+    type: 3}
 --- !u!1 &5589340721691402409
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,10 @@ public class Rabbit : MonoBehaviour
     private float walkSpeed; // 걷기 스피드
     private float applySpeed;
 
+    [SerializeField] 
+    private float turningSpeed;
+
+
     // 상태변수
     private bool isAction; // 행동중인지 아닌지 판별
     private bool isWalking;
@@ -40,6 +44,8 @@ public class Rabbit : MonoBehaviour
 
     protected NavMeshAgent nav;
 
+    [SerializeField]
+    private GameObject go_meat_item_prefab; // 부서지면 나올 아이템
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +77,8 @@ public class Rabbit : MonoBehaviour
     {
         if (isRunning || isWalking)
         {
-            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, direction.y, 0f), 0.01f);
+            turningSpeed = Random.Range(0.01f, 0.05f);
+            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0f, direction.y, 0f), turningSpeed);
             rigid.MoveRotation(Quaternion.Euler(_rotation));
         }
         //Debug.Log("아니 이게 왜 안나오는거야");
@@ -171,6 +178,10 @@ public class Rabbit : MonoBehaviour
         isDead = true;
 
         this.gameObject.tag = "Untagged";
+
+        Destroy(this.gameObject, 2);
+
+        Instantiate(go_meat_item_prefab, this.transform.position, Quaternion.identity);
 
         anim.SetTrigger("isDead");
     }

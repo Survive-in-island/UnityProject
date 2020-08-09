@@ -16310,7 +16310,7 @@ MonoBehaviour:
   points: []
   animal: {fileID: 1798106887}
   animalCreatTime: 5
-  maxAnimal: 5
+  maxAnimal: 3
   isGameOver: 0
 --- !u!195 &1798106894
 NavMeshAgent:
@@ -21162,7 +21162,7 @@ PrefabInstance:
     - target: {fileID: 5589194674360384845, guid: 964f1b2468bf1f64a821b5d6e5cc255d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5590491806285423945, guid: 964f1b2468bf1f64a821b5d6e5cc255d,
         type: 3}
